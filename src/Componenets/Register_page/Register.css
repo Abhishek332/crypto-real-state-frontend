@@ -1,0 +1,16 @@
+.shareoptin{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.shareoptin > span {
+    margin: 10px;
+}
+.Register{
+    padding: 15rem 0 20rem 0;
+    text-align: center;
+    background: url("https://cdn.wallpapersafari.com/44/70/6GExLF.jpg") center no-repeat;
+    background-size: cover;
+    animation: contact-bg 35s infinite;
+}
+

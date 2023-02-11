@@ -1,0 +1,29 @@
+.allinfo{
+    display:flex;
+flex-direction: column;
+
+}
+.allinfo > div {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+   
+}
+.image{
+    width: 100%;
+}
+.image > img{
+    width: 100%;
+    object-fit: contain;
+}
+.btn_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+}
+.btn{
+    width:50% !important;
+
+}
