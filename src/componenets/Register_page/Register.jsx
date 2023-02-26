@@ -6,22 +6,16 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "./Register.css";
-import { ethers } from "ethers";
-import { useMoralis, useMoralisFile } from "react-moralis";
 import { create as ipfsHttpClient } from "ipfs-http-client";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import { PermMedia } from "@mui/icons-material";
 import { Checkbox, Grid, Input, TextField } from "@mui/material";
 import { setstate } from "../../ContextApi/Contextapi";
-import { dataref, storage } from "../firebase";
+import {  storage } from "../firebase";
 import {
   getDownloadURL,
   ref,
-  uploadBytes,
   uploadBytesResumable,
 } from "firebase/storage";
-import { useAccount } from "wagmi";
-const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 function Register() {
   const { contractInstance, address } = useContext(setstate);
   const [price, setprice] = useState();
@@ -52,7 +46,7 @@ function Register() {
         from: address,
         value: listingPrice,
       };
-      console.log('ether s',etherAddress.toString().toLowerCase())
+      // console.log('ether s',etherAddress.toString().toLowerCase())
        setetherAddress(etherAddress.toString().toLowerCase())
       await contractInstance.methods
         .mintCryptoState(
@@ -64,7 +58,10 @@ function Register() {
           forsell
         )
         .send(transactionObject);
-    } catch (error) {}
+    } catch (error) {
+
+      console.log(error)
+    }
 
     // router.push("/properties");
   };
