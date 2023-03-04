@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { setstate } from "../../ContextApi/Contextapi";
 import MediaCard from "./card/Card";
 
-import "./Property.css";
-import { loadContracts } from "../loadContract";
+import "./property-page.css";
+import { loadContracts } from "../../components/loadContract";
+
 function Property() {
   const { contractInstance, address, setContract } = useContext(setstate);
   const [allProperty, setallProperty] = useState();

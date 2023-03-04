@@ -3,7 +3,7 @@ import "./wrapper.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../../pages/home-page/home-page.component";
 import Footer from "../Footer/Footer";
-import Property from "../Property_page/Property";
+import Property from "../../pages/property-page/property-page.component";
 import Register from "../../pages/register-page/register-page.component";
 import RecipeReviewCard from "../Detiles_page/Eetiles";
 
