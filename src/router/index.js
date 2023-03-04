@@ -1,16 +1,14 @@
-import Navbar from "../navbar/Navbar";
+import Navbar from "../components/navbar/Navbar";
 import "./wrapper.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../../pages/home-page/home-page.component";
-import Footer from "../Footer/Footer";
-import Property from "../../pages/property-page/property-page.component";
-import Register from "../../pages/register-page/register-page.component";
-import RecipeReviewCard from "../Detiles_page/Eetiles";
-
-
+import Home from "../pages/home-page/home-page.component";
+import Footer from "../components/Footer/Footer";
+import Property from "../pages/property-page/property-page.component";
+import Register from "../pages/register-page/register-page.component";
+import RecipeReviewCard from "../components/Detiles_page/Eetiles";
 
 // you can import like this
-function wrapper() {
+const Router = ()=>{
   return (
     <div className="container">
       <BrowserRouter>
@@ -27,4 +25,4 @@ function wrapper() {
   );
 }
 
-export default wrapper;
+export default Router;
