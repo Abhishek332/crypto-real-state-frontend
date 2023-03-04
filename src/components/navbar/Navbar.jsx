@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import "./Navbar.css";
 import {  useConnect } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { setstate } from "../../ContextApi/Contextapi";
@@ -36,8 +35,7 @@ export default function ButtonAppBar() {
 
 
   return (
-    // <Box sx={{ flexGrow: 1 }}>
-      <ThemeProvider theme={darkTheme}>
+    <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>
@@ -73,15 +71,6 @@ export default function ButtonAppBar() {
             )}
           </Toolbar>
         </AppBar>
-      </ThemeProvider>
-    // </Box>
+     </Box>
   );
 }
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#1976d2",
-    },
-  },
-});
