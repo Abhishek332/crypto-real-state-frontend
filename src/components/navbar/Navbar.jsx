@@ -10,7 +10,7 @@ import { InjectedConnector } from "wagmi/connectors/injected";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../utils/context-provider";
-import { connectToWallet } from "../loadContract";
+import { connectToWallet } from "../../utils/loadContract";
 import {GOVT_ADDR} from '../../utils/constants'
 
 export default function ButtonAppBar() {

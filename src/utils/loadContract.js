@@ -1,13 +1,7 @@
 import Cryptostate from "../components/contractabi.json";
 import Web3 from "web3";
+
 const connectToWallet = async () => {
-    await getProvider()
-
-
-}
-
-
-const getProvider = async () => {
     if (window.ethereum) {
         const ethereum = window.ethereum;
         try {
@@ -23,7 +17,7 @@ const getProvider = async () => {
 }
 
 const loadContracts = async () => {
-    const web3 = new Web3(await getProvider()
+    const web3 = new Web3(await connectToWallet()
     );
     const contractInstance = await new web3.eth.Contract(
         Cryptostate.abi,
