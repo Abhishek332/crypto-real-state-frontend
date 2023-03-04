@@ -1,14 +1,11 @@
 import React, { useContext, useState } from "react";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "./Register.css";
-import { create as ipfsHttpClient } from "ipfs-http-client";
 import { PermMedia } from "@mui/icons-material";
-import { Checkbox, Grid, Input, TextField } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 import { setstate } from "../../ContextApi/Contextapi";
 import {  storage } from "../firebase";
 import {
