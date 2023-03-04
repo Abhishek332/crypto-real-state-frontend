@@ -1,26 +1,14 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import {cssBaselineClasses} from '../material-ui/css-baseline-util'
 
 const darkTheme = createTheme({
-	components: {
-		MuiCssBaseline: {
-			styleOverrides: {
-				'&.Mui-disabled': {
-					cursor: 'not-allowed !important',
-					pointerEvents: 'all !important',
-				},
-				MuiCssBaseline: cssBaselineClasses,
-			},
-		},
-	},
 	palette: {
-		mode: 'dark',
+		mode: 'light',
 		primary: {
 			main: '#1976d2',
 		},
 	},
 	typography: {
-		fontFamily: 'Lato, Source Sans Pro, sans-serif',
+		fontFamily: 'Poppins, sans-serif',
 	},
 });
 
