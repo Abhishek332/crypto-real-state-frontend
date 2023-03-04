@@ -1,16 +1,10 @@
-import { WagmiConfig, createClient } from "wagmi";
-import { getDefaultProvider } from "ethers";
+
 import Wrapper from "./components/wrapper/wrapper";
 import { useEffect } from "react";
 import { setstate } from "./ContextApi/Contextapi";
 import { useState } from "react";
 import { loadContracts } from "./components/loadContract";
 
-
-const client = createClient({
-  autoConnect: true,
-  provider: getDefaultProvider(),
-});
 
 function App() {
   const [contractInstance, setContract] = useState();
@@ -29,11 +23,10 @@ function App() {
   }, []);
 
   return (
-    <WagmiConfig client={client}>
+    
       <setstate.Provider value={{ contractInstance,address,setAddress,setContract }}>
         <Wrapper />
       </setstate.Provider>
-    </WagmiConfig>
   );
 }
 

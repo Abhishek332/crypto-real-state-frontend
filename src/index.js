@@ -3,13 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import ApplyTheme from "./utils/theme";
+import AccountConnector from './utils/account-connector'
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ApplyTheme>
+      <AccountConnector>
       <App />
+      </AccountConnector>
     </ApplyTheme>
   </React.StrictMode>
 );
