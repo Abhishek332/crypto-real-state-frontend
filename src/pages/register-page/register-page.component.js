@@ -13,6 +13,8 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import {GOVT_ADDR} from '../../utils/constants'
+
 function Register() {
   const { contractInstance, address } = useContext(setstate);
   const [price, setprice] = useState();
@@ -63,7 +65,7 @@ function Register() {
     // router.push("/properties");
   };
 
-  if(address === "0x9a3310233aafe8930d63145cc821ff286c7829e1"){
+  if(address === GOVT_ADDR){
   return (
     <section class="contact">
       <Typography gutterBottom variant="h3" align="center" color={"white"}>

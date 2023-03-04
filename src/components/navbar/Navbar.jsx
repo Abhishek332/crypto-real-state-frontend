@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { setstate } from "../../ContextApi/Contextapi";
 import { connectToWallet } from "../loadContract";
+import {GOVT_ADDR} from '../../utils/constants'
+
 export default function ButtonAppBar() {
   const { address, setAddress } = useContext(setstate);
   const { connect } = useConnect({
@@ -34,7 +36,7 @@ export default function ButtonAppBar() {
 
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    // <Box sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={darkTheme}>
         <AppBar position="static">
           <Toolbar>
@@ -47,24 +49,16 @@ export default function ButtonAppBar() {
             <Link color="inherit" className="links" to="/properties">
               <Button color="inherit">Properties</Button>
             </Link>
-            {address === "0x9a3310233aafe8930d63145cc821ff286c7829e1" ? (
-              <Link className="links" to="/Register">
+            {address === GOVT_ADDR &&  <Link className="links" to="/Register">
                 <Button color="inherit">Register</Button>
-              </Link>
-            ) : (
-              <p></p>
-            )}
+              </Link>}
 
             <Typography
               variant="h6"
               component="div"
               sx={{ flexGrow: 1 }}
             ></Typography>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1 }}
-            ></Typography>
+            
             {address !== undefined ? (
               <div>
                 Connected to {address.slice(1,10).toString()}
@@ -80,7 +74,7 @@ export default function ButtonAppBar() {
           </Toolbar>
         </AppBar>
       </ThemeProvider>
-    </Box>
+    // </Box>
   );
 }
 const darkTheme = createTheme({
