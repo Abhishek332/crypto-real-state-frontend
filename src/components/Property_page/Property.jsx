@@ -10,8 +10,6 @@ function Property() {
   console.log(contractInstance);
   const [loding, setloding] = useState(false);
 
-  let i = 0;
-  let TokenMinted;
   const getallProp = async () => {
     const cr = await loadContracts();
     setContract(cr);

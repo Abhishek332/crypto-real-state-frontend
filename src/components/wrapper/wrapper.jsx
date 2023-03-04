@@ -1,13 +1,10 @@
-import { Switch } from "react-router";
 import Navbar from "../navbar/Navbar";
 import "./wrapper.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../home/home";
+import Home from "../../pages/home-page/home-page.component";
 import Footer from "../Footer/Footer";
-import Detiles from "../Detiles_page/Detiles";
 import Property from "../Property_page/Property";
 import Register from "../Register_page/Register";
-import { useEffect } from "react";
 import RecipeReviewCard from "../Detiles_page/Eetiles";
 
 

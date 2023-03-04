@@ -1,10 +1,10 @@
 import { WagmiConfig, createClient } from "wagmi";
 import { getDefaultProvider } from "ethers";
-import Wrapper from "./componenets/wrapper/wrapper";
+import Wrapper from "./components/wrapper/wrapper";
 import { useEffect } from "react";
 import { setstate } from "./ContextApi/Contextapi";
 import { useState } from "react";
-import { loadContracts } from "./componenets/loadContract";
+import { loadContracts } from "./components/loadContract";
 
 
 const client = createClient({

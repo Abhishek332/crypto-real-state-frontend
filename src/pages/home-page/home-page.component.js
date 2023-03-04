@@ -1,7 +1,7 @@
 import React from "react";
-import "./home.css";
-import HomeCard from "../Card/homeCard";
-import Contectus from "../Contact/contactus";
+import "./home-page.css";
+import HomeCard from "../../components/Card/homeCard";
+import Contectus from "../../components/Contact/contactus";
 function Home() {
   const cardInfo = [
  {
