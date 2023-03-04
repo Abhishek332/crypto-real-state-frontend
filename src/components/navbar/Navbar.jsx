@@ -9,12 +9,12 @@ import {  useConnect } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { setstate } from "../../ContextApi/Contextapi";
+import { Context } from "../../utils/context-provider";
 import { connectToWallet } from "../loadContract";
 import {GOVT_ADDR} from '../../utils/constants'
 
 export default function ButtonAppBar() {
-  const { address, setAddress } = useContext(setstate);
+  const { address, setAddress } = useContext(Context);
   const { connect } = useConnect({
     connector: new InjectedConnector(),
   });

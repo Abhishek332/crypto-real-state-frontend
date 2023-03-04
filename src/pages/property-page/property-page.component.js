@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { setstate } from "../../ContextApi/Contextapi";
+import { Context } from "../../utils/context-provider";
 import MediaCard from "./card/Card";
 
 import "./property-page.css";
 import { loadContracts } from "../../components/loadContract";
 
 function Property() {
-  const { contractInstance, address, setContract } = useContext(setstate);
+  const { contractInstance, address, setContract } = useContext(Context);
   const [allProperty, setallProperty] = useState();
   console.log(contractInstance);
   const [loding, setloding] = useState(false);

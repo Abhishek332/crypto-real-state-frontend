@@ -18,7 +18,7 @@ import { useLocation } from "react-router";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import PlusOneOutlinedIcon from "@mui/icons-material/PlusOneOutlined";
 import { Button } from "@mui/material";
-import { setstate } from "../../ContextApi/Contextapi";
+import { Context } from "../../utils/context-provider";
 import { ethers } from "ethers";
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -32,7 +32,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function RecipeReviewCard() {
-  const { contractInstance, address } = React.useContext(setstate);
+  const { contractInstance, address } = React.useContext(Context);
 
   const [expanded, setExpanded] = React.useState(false);
   const loaction = useLocation();

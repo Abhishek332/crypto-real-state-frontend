@@ -1,20 +1,23 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import ApplyTheme from "./utils/theme";
-import AccountConnector from './utils/account-connector'
-import reportWebVitals from "./reportWebVitals";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import ApplyTheme from './utils/theme';
+import AccountConnector from './utils/account-connector';
+import ContextProvider from './utils/context-provider';
+import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <ApplyTheme>
-      <AccountConnector>
-      <App />
-      </AccountConnector>
-    </ApplyTheme>
-  </React.StrictMode>
+	<React.StrictMode>
+		<ApplyTheme>
+			<AccountConnector>
+				<ContextProvider>
+					<App />
+				</ContextProvider>
+			</AccountConnector>
+		</ApplyTheme>
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

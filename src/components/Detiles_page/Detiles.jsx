@@ -3,10 +3,11 @@ import "./Detiles.css";
 import { ethers } from "ethers";
 import Button from "@mui/material/Button";
 import React, { useContext, useEffect, useState } from "react";
-import { setstate } from "../../ContextApi/Contextapi";
+import { Context } from "../../utils/context-provider";
 import { Typography } from "@mui/material";
+
 function Detiles() {
-  const { contractInstance, address } = useContext(setstate);
+  const { contractInstance, address } = useContext(Context);
   const buyItem = async (e) => {
     e.preventDefault();
 

@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import "./register-page.css";
 import { PermMedia } from "@mui/icons-material";
 import { Grid, TextField } from "@mui/material";
-import { setstate } from "../../ContextApi/Contextapi";
+import { Context } from "../../utils/context-provider";
 import {  storage } from "../../components/firebase";
 import {
   getDownloadURL,
@@ -16,7 +16,7 @@ import {
 import {GOVT_ADDR} from '../../utils/constants'
 
 function Register() {
-  const { contractInstance, address } = useContext(setstate);
+  const { contractInstance, address } = useContext(Context);
   const [price, setprice] = useState();
   const [city, setcity] = useState();
   const [etherAddress, setetherAddress] = useState();
