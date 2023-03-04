@@ -1,4 +1,4 @@
-import Cryptostate from "../components/contractabi.json";
+import Cryptostate from "./contractabi.json";
 import Web3 from "web3";
 
 const connectToWallet = async () => {

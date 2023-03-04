@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { loadContracts } from '../../utils/loadContract';
+import { loadContracts } from '../load-contracts';
 
 const Context = createContext({});
 

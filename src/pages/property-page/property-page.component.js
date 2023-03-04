@@ -3,7 +3,7 @@ import { Context } from "../../utils/context-provider";
 import MediaCard from "./card/Card";
 
 import "./property-page.css";
-import { loadContracts } from "../../utils/loadContract";
+import { loadContracts } from "../../utils/load-contracts";
 
 function Property() {
   const { contractInstance, address, setContract } = useContext(Context);

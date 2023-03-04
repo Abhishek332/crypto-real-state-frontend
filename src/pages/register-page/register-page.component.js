@@ -7,7 +7,7 @@ import "./register-page.css";
 import { PermMedia } from "@mui/icons-material";
 import { Grid, TextField } from "@mui/material";
 import { Context } from "../../utils/context-provider";
-import {  storage } from "../../components/firebase";
+import {  storage } from "../../configs/firebase";
 import {
   getDownloadURL,
   ref,
