@@ -101,7 +101,7 @@ export default function RecipeReviewCard() {
           </Typography>
         </CardContent>
 
-        {state.owner.toLowerCase() == address ? (
+        {state.owner.toLowerCase() === address ? (
           <CardActions disableSpacing>
             <Button className="btn" variant="outlined" onClick={chnagePrice}>Incress Price</Button>
            

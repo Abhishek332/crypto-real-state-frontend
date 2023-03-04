@@ -62,7 +62,7 @@ function Detiles() {
           <h3>price:</h3> {loaction.state?.price}
         </Typography>
       </div>
-      {loaction.state.owner.toLowerCase() == address &&
+      {loaction.state.owner.toLowerCase() === address &&
       address !== undefined ? (
         <div className="">
           <div className="btn_div">

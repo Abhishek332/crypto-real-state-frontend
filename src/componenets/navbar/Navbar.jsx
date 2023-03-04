@@ -25,7 +25,7 @@ export default function ButtonAppBar() {
   const connectWallet = async () => {
     var acc = await window.ethereum.request({ method: "eth_accounts" });
     console.log(acc)
-    if (acc[0] != undefined) {
+    if (acc[0] !== undefined) {
       setAddress(acc[0]);
       return;
     }
@@ -49,7 +49,7 @@ export default function ButtonAppBar() {
             <Link color="inherit" className="links" to="/properties">
               <Button color="inherit">Properties</Button>
             </Link>
-            {address == "0x9a3310233aafe8930d63145cc821ff286c7829e1" ? (
+            {address === "0x9a3310233aafe8930d63145cc821ff286c7829e1" ? (
               <Link className="links" to="/Register">
                 <Button color="inherit">Register</Button>
               </Link>
@@ -67,7 +67,7 @@ export default function ButtonAppBar() {
               component="div"
               sx={{ flexGrow: 1 }}
             ></Typography>
-            {address != undefined ? (
+            {address !== undefined ? (
               <div>
                 Connected to {address.slice(1,10).toString()}
                 <Button variant="contained" onClick={disConnect}>

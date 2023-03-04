@@ -42,7 +42,7 @@ function Property() {
   return (
     <div className="main ">
       {" "}
-      {address == undefined ? (
+      {address === undefined ? (
         <div>
           <h1>Please connect your metamask</h1>
         </div>

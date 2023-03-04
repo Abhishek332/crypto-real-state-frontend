@@ -66,7 +66,7 @@ function Register() {
     // router.push("/properties");
   };
 
-  if(address == "0x9a3310233aafe8930d63145cc821ff286c7829e1"){
+  if(address === "0x9a3310233aafe8930d63145cc821ff286c7829e1"){
   return (
     <section class="contact">
       <Typography gutterBottom variant="h3" align="center" color={"white"}>
@@ -181,19 +181,19 @@ function Register() {
                 <Grid item xs={12}>
                   <Button
                     disabled={
-                      imageUrl == undefined ||
-                      imageUrl == "" ||
-                      placeaddress == undefined ||
-                      placeaddress == "" ||
-                      city == undefined ||
-                      city == "" ||
-                      price == undefined ||
-                      price == "" ||
-                      etherAddress == undefined ||
-                      etherAddress == "" ||
-                      forsell == undefined ||
-                      forsell == "" ||
-                      address == undefined
+                      imageUrl === undefined ||
+                      imageUrl === "" ||
+                      placeaddress === undefined ||
+                      placeaddress === "" ||
+                      city === undefined ||
+                      city === "" ||
+                      price === undefined ||
+                      price === "" ||
+                      etherAddress === undefined ||
+                      etherAddress === "" ||
+                      forsell === undefined ||
+                      forsell === "" ||
+                      address === undefined
                     }
                     type="submit"
                     variant="contained"
