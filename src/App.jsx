@@ -2,11 +2,9 @@ import { WagmiConfig, createClient } from "wagmi";
 import { getDefaultProvider } from "ethers";
 import Wrapper from "./componenets/wrapper/wrapper";
 import { useEffect } from "react";
-import Cryptostate from "./componenets/contractabi.json";
-import Web3 from "web3";
 import { setstate } from "./ContextApi/Contextapi";
 import { useState } from "react";
-import { connectToWallet, loadContracts } from "./componenets/loadContract";
+import { loadContracts } from "./componenets/loadContract";
 
 
 const client = createClient({
