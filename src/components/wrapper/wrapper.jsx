@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../../pages/home-page/home-page.component";
 import Footer from "../Footer/Footer";
 import Property from "../Property_page/Property";
-import Register from "../Register_page/Register";
+import Register from "../../pages/register-page/register-page.component";
 import RecipeReviewCard from "../Detiles_page/Eetiles";
 
 

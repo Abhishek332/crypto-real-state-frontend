@@ -3,11 +3,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import "./Register.css";
+import "./register-page.css";
 import { PermMedia } from "@mui/icons-material";
 import { Grid, TextField } from "@mui/material";
 import { setstate } from "../../ContextApi/Contextapi";
-import {  storage } from "../firebase";
+import {  storage } from "../../components/firebase";
 import {
   getDownloadURL,
   ref,
