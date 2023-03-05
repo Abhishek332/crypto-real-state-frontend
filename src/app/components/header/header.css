@@ -1,6 +1,6 @@
 .header {
 	width: 100%;
-	height: calc(100vh - 7rem);
+	height: calc(100vh - 60px);
 	background: linear-gradient(rgba(18, 113, 255, 0.5), rgba(18, 113, 255, 0.3)),
 		url('') center no-repeat;
 	background-size: cover;
@@ -12,7 +12,7 @@
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
-	text-shadow: 0 0.3rem 0.5rem var(--grey-color);
+	text-shadow: 0 0.3rem 0.5rem var(--grey-color); 
 }
 
 .heading {

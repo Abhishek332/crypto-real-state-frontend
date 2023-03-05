@@ -4,6 +4,7 @@ import HomeCard from '../../components/Card/homeCard';
 import Contectus from '../../components/Contact/contactus';
 import IndiaLogo from '../../components/india-logo/india-logo.component';
 import Header from '../../components/header/header.component';
+import House from '../../assets/house.jpeg';
 
 function Home() {
 	const cardInfo = [
@@ -35,7 +36,7 @@ function Home() {
 
 	return (
 		<div>
-			<Header logo={IndiaLogo}>
+			<Header logo={IndiaLogo} background={House}>
 				<div className="header-text">
 					<h1 className="heading">Around the India</h1>
 					<p className="header-paragraph">
