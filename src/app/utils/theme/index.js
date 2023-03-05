@@ -9,6 +9,7 @@ const darkTheme = createTheme({
 	},
 	typography: {
 		fontFamily: 'Poppins, sans-serif',
+		fontSize: '1rem'
 	},
 });
 

@@ -13,12 +13,14 @@ const Router = ()=>{
     <div className="container">
       <BrowserRouter>
         <Navbar />
+        <div className="page-container">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/moreInfo" element={<RecipeReviewCard />} />
           <Route path="/properties" element={<Property />} />
           <Route path="/Register" element={<Register />} />
         </Routes>
+          </div>
         <Footer />
       </BrowserRouter>
     </div>
