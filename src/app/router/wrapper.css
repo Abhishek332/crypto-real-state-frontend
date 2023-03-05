@@ -563,11 +563,7 @@
     }
   }
   
-  @media (max-width: 650px) {
-    .container {
-      margin: 0;
-    }
-  
+  @media (max-width: 650px) { 
     .open-navbar-icon {
       top: 2.5rem;
       left: 2.5rem;

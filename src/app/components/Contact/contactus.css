@@ -238,9 +238,6 @@
   }
   
   @media (max-width: 650px) {
-    .container {
-      margin: 0;
-    }
   
     .open-navbar-icon {
       top: 2.5rem;
