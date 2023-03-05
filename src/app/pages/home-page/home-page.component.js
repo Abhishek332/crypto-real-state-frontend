@@ -2,7 +2,9 @@ import React from 'react';
 import './home-page.css';
 import HomeCard from '../../components/Card/homeCard';
 import Contectus from '../../components/Contact/contactus';
-import IndiaLogo from '../../components/india-logo/india-logo.component'
+import IndiaLogo from '../../components/india-logo/india-logo.component';
+import Header from '../../components/header/header.component';
+
 function Home() {
 	const cardInfo = [
 		{
@@ -30,18 +32,17 @@ function Home() {
 			],
 		},
 	];
-  
+
 	return (
 		<div>
-			<header className="header center">
+			<Header logo={IndiaLogo}>
 				<div className="header-text">
 					<h1 className="heading">Around the India</h1>
 					<p className="header-paragraph">
 						"crypto state - “Where Dreams Come Home & become secure”
 					</p>
-				</div>	
-				<IndiaLogo/>
-			</header>
+				</div>
+			</Header>
 			<section className="popular-tours">
 				<h1 className="popular-tours-heading">The Process of Verificatoin</h1>
 				<div className="cards-wrapper">
