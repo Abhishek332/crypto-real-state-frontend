@@ -1,13 +1,13 @@
 import React from 'react';
-import './header.css'
+import './header.css';
 
-function Header({ title, logo: Logo, background='', children }) {
-const headerStyle = {
-    background: `url(${background}) center center/cover`
-}
+function Header({ title, logo: Logo, background = '', children }) {
+	const headerStyle = {
+		background: `url(${background}) center center/cover`,
+	};
 
 	return (
-		<header className="header center" style={headerStyle}>
+		<header className="header center" style={background ? headerStyle : {}}>
 			{children}
 			<Logo />
 		</header>

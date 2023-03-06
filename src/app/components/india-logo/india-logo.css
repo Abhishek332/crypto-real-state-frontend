@@ -66,3 +66,18 @@
     }
   }
   
+  @media(max-width: 768px){
+    .india-logo{
+      transform: scale(0.8);
+      top: 2rem;
+      right: 1rem;
+    }
+  }
+
+  @media(max-width: 450px){
+    .india-logo{
+      transform: scale(0.7);
+      top: 1rem;
+      right: 0;
+    }
+  }
