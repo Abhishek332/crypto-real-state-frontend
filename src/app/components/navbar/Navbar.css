@@ -1,125 +1,157 @@
-.navbar{
-    justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.4);
-    height : 70px;
-    width : 100%;
-    position: fixed;
-    padding: 0 15px;
-    background-color: rgba(17, 14, 14, 0.4);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  z-index: 1000;
+.navbar {
+	justify-content: space-between;
+	height: 70px;
+	width: 100%;
+	position: fixed;
+	padding: 0 15px;
+	background-color: rgba(17, 14, 14, 0.4);
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+	z-index: 1000;
 }
 
-.navbar *{
-    font-size: 16px;
+.navbar * {
+	font-size: 16px;
 }
 
-.navbar .toggle-btn{
-    margin-right: 15px;
-    color: white;
-    font-size: 34px;  
-    transition: 1s;  
+.nav-modal {
+	height: calc(100vh - 70px);
+	width: 300px;
+	z-index: 1000;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: white;
+    transition: 0.7s;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 20px;
 }
 
-.navbar .flip-toggle{
-    transform: rotateY(180deg);
+.nav-modal .nav-link{
+    color: var(--primary-color);
+    font-size: 14px;
+    width: 100%;
+    border-bottom: 1px solid var(--primary-color);
+    text-align: center;
+    text-shadow: none;
+    padding: 15px;
 }
 
-.navbar .navbar-brand{
-color: white;
-font-size: 30px;
-font-family: 'Tilt Neon', cursive;
+.navbar .toggle-btn {
+	margin-right: 15px;
+	color: white;
+	font-size: 34px;
+	transition: 0.7s;
+	display: none;
 }
 
-.navbar .nav-links{
-    margin: 0 20px;
+.navbar .flip-toggle {
+	transform: rotateY(180deg);
 }
 
-.navbar .nav-links .nav-link{
-    color: white;
-    font-weight: medium;
-    margin: 0 4px;
-    padding: 5px;
-    transition: all 0.3s;
-    text-shadow: 0 0 2px rgb(71, 71, 71); 
+.navbar .navbar-brand {
+	color: white;
+	font-size: 30px;
+	font-family: 'Tilt Neon', cursive;
 }
 
-.navbar .nav-links .nav-link:hover{
-    animation: nav-light 0.3s ease-in-out 1;
-    font-weight: bold;
+.navbar .nav-links {
+	margin: 0 20px;
 }
 
-.navbar button{
-    border-radius: 10px 0;
-    border: none;
-    box-shadow: 0 0 5px rgba(112, 112, 112, 0.4);
-    height: 35px;
-    width: 200px;
-    cursor: pointer;
-    font-weight: 600; 
-    transition: 0.1s;     
+.nav-link {
+	color: white;
+	margin: 0 4px;
+	padding: 5px;
+	transition: all 0.3s;
+	text-shadow: 0 0 2px rgb(71, 71, 71);
 }
 
-.navbar button:hover{
-    animation: button-light 0.3s ease-in-out;
+.nav-link:hover {
+	animation: nav-light 0.3s ease-in-out 1;
+	font-weight: bold;
 }
 
-@keyframes button-light{
-    0%{
-        transform: scale(1);
+.navbar button {
+	border-radius: 10px 0;
+	border: none;
+	box-shadow: 0 0 5px rgba(112, 112, 112, 0.4);
+	height: 35px;
+	width: 200px;
+	cursor: pointer;
+	font-weight: 600;
+	transition: 0.1s;
+}
+
+.navbar button:hover {
+	animation: button-light 0.3s ease-in-out;
+}
+
+@keyframes button-light {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.03);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes nav-light {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(5px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 768px) {
+	.navbar button {
+		height: 36px;
+	}
+
+	.navbar .nav-links {
+		display: none;
+	}
+
+	.navbar .toggle-btn {
+		display: block;
+	}
+}
+
+@media (max-width: 450px) {
+	.navbar {
+		height: 60px;
+		padding: 0 10px;
+	}
+
+    .nav-modal{
+        height: calc(100vh - 60px);
+        width: 240px;
     }
-    50%{
-        transform: scale(1.03);
-    }
-    100%{
-        transform: scale(1);
-    }
-}
 
-@keyframes nav-light{
-    0%{
-        transform:translateY(0);
-    }
-    50%{
-        transform: translateY(5px);
-    }
-    100%{
-        transform:translateY(0);
-    }
-}
+	.navbar .toggle-btn {
+		font-size: 32px;
+		margin-right: 10px;
+	}
 
-@media(max-width: 768px){
-.navbar button{
-    height: 36px;
-}
+	.navbar .navbar-brand {
+		font-size: 24px;
+	}
 
-.navbar .nav-links{
-    display: none;
-}
-}
+	.navbar * {
+		font-size: 13px;
+	}
 
-@media(max-width: 450px){
-    .navbar{
-        height: 60px;
-        padding: 0 10px;
-    }
-
-    .navbar .toggle-btn{
-        font-size: 32px;
-        margin-right: 10px;
-    }
-
-    .navbar .navbar-brand{
-        font-size: 24px;
-    }
-
-    .navbar *{
-        font-size: 13px;
-    }
-
-    .navbar button{
-        height: 27px;
-        width: 150px;
-    }
+	.navbar button {
+		height: 27px;
+		width: 150px;
+	}
 }
