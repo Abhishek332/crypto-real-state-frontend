@@ -13,22 +13,22 @@ function Home() {
 			text: [
 				'Written in solidity',
 				'Audited by  Deloitte',
-				'Tested by Quick Hilles',
+				'Tested by Quick Hills',
 			],
 		},
 		{
 			img: 'https://thumbs.dreamstime.com/b/illustration-vector-ethereum-logo-long-shadow-illustration-vector-ethereum-logo-long-shadow-cryptocurrency-113135110.jpg',
 			text: [
 				'Security of Ethereum',
-				'Validate buy proof of stack',
+				'Validate Buy Proof of Stack',
 				'No tempering issue',
 			],
 		},
 		{
 			img: 'https://logopeople.in/blog/wp-content/uploads/2013/01/government-of-india.jpg',
 			text: [
-				'Opreated by GOVT OF INDIA',
-				'Deparetement of Real state GOI',
+				'Operated by GOVT OF INDIA',
+				'Department of Real State GOI',
 				'Total Listed Property 1M',
 			],
 		},
@@ -36,7 +36,7 @@ function Home() {
 
 	return (
 		<div>
-			<Header logo={IndiaLogo} background={House}>
+			<Header logo={IndiaLogo} background={House} >
 				<div className="header-text">
 					<h1 className="heading">Around the India</h1>
 					<p className="header-paragraph">
