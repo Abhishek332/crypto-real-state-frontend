@@ -1,7 +1,8 @@
 .india-logo {
     position: absolute;
-    top: 9rem;
-    right: 4rem;
+    top:0;
+    right:0;
+    margin: 100px 20px;
   }
   
   .india-logo h1 {
@@ -9,14 +10,14 @@
   }
   
   .india-logo h1 span {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     color: var(--primary-color);
     text-transform: uppercase;
     background-color: var(--white-color);
-    width: 3.5rem;
-    height: 3.5rem;
-    margin: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    margin: 0.3rem;
     border-radius: 50%;
   }
   
@@ -65,18 +66,9 @@
       transform: translateY(0);
     }
   }
-  
-  @media(max-width: 768px){
-    .india-logo{
-      transform: scale(0.7);
-      top: 7rem;
-      right: -2rem;
-    }
-  }
 
   @media(max-width: 450px){
     .india-logo{
-      transform: scale(0.6);
-      top: 1rem;
+      margin: 85px 15px;
     }
   }
