@@ -166,13 +166,6 @@
   }
   
   @media (max-width: 1000px) {
-    .nav-list {
-      flex-direction: column;
-    }
-  
-    .nav-link {
-      flex-grow: 1;
-    }
   
     .popular-tours-heading {
       font-size: 6rem;
@@ -218,19 +211,6 @@
   }
   
   @media (max-width: 650px) {
-  
-    .open-navbar-icon {
-      top: 2.5rem;
-      left: 2.5rem;
-    }
-  
-    .navbar-wrapper {
-      padding: 0;
-    }
-  
-    .close-navbar-icon {
-      right: 4rem;
-    }
   
     .contact-heading {
       font-size: 6rem;
