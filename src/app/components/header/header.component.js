@@ -1,15 +1,18 @@
 import React from 'react';
 import './header.css';
 
-function Header({ title, logo: Logo, background = '', children }) {
+function Header({ title, logo: Logo, background = '', children, head = '' }) {
 	const headerStyle = {
-		background: `url(${background}) center center/cover`,
+		background: `linear-gradient(rgba(18, 113, 255, 0.5), rgba(18, 113, 255, 0.3)), url(${background}) center/cover`,
 	};
 
 	return (
-		<header className="header center" style={background ? headerStyle : {}}>
-			{children}
-			<Logo />
+		<header
+			className={`center ${head ? 'head' : 'header'}`}
+			style={background ? headerStyle : {}}
+		>
+			{children && children}
+			{Logo && <Logo />}
 		</header>
 	);
 }
