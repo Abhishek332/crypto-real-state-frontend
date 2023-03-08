@@ -5,13 +5,27 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from '../../utils/context-provider';
 import { connectToWallet } from '../../utils/load-contracts';
+import { useLocation } from 'react-router';
 
 function Navbar() {
 	const [modal, setModal] = useState(false);
 	const { address, setAddress } = useContext(Context);
+	const {pathname} = useLocation();
+
 	//   const { connect } = useConnect({
 	//     connector: new InjectedConnector(),
 	//   });
+
+	const NavLinks = [
+		{
+			name: 'Home',
+			path: '/',
+		},
+		{
+			name: 'Properties',
+			path: '/properties',
+		},
+	];
 
 	const disConnect = () => {
 		setAddress(undefined);
@@ -48,12 +62,15 @@ function Navbar() {
 					/>
 					<h3 className="navbar-brand">Crypto State</h3>
 					<div className="nav-links center">
-						<Link className="nav-link" to="/">
-							Home
-						</Link>
-						<Link className="nav-link" to="/properties">
-							Properties
-						</Link>
+						{NavLinks.map((link) => (
+							<Link
+								className={`nav-link ${pathname === link.path ? 'active' : ''}`}
+								to={link.path}
+								key={link.name}
+							>
+								{link.name}
+							</Link>
+						))}
 					</div>
 				</div>
 				<div className="center">
@@ -70,12 +87,16 @@ function Navbar() {
 						: { transform: 'translateX(-100%)' }
 				}
 			>
-				<Link className="nav-link" to="/">
-					Home
-				</Link>
-				<Link className="nav-link" to="/properties">
-					Properties
-				</Link>
+				{NavLinks.map((link) => (
+					<Link
+						className={`nav-link ${pathname === link.path ? 'active' : ''}`}
+						to={link.path}
+						key={link.name}
+						onClick={() => setModal(!modal)}
+					>
+						{link.name}
+					</Link>
+				))}
 			</div>
 		</>
 	);

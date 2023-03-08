@@ -68,6 +68,10 @@
 	text-shadow: 0 0 2px rgb(71, 71, 71);
 }
 
+.nav-link.active{
+    font-weight: bold;
+}
+
 .nav-link:hover {
 	animation: nav-light 0.3s ease-in-out 1;
 	font-weight: bold;
