@@ -1,6 +1,6 @@
 .india-logo {
     position: absolute;
-    top: 4rem;
+    top: 9rem;
     right: 4rem;
   }
   
@@ -68,16 +68,15 @@
   
   @media(max-width: 768px){
     .india-logo{
-      transform: scale(0.8);
-      top: 2rem;
-      right: 1rem;
+      transform: scale(0.7);
+      top: 7rem;
+      right: -2rem;
     }
   }
 
   @media(max-width: 450px){
     .india-logo{
-      transform: scale(0.7);
+      transform: scale(0.6);
       top: 1rem;
-      right: 0;
     }
   }

@@ -1,6 +1,6 @@
 .header {
-	width: 100%;
-	height: calc(100vh - 60px);
+	width: 100vw; 
+	height: 100vh;
 	background: linear-gradient(rgba(18, 113, 255, 0.5), rgba(18, 113, 255, 0.3)),
 		url('') center no-repeat;
 	background-size: cover;
