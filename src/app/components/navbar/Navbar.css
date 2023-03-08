@@ -54,6 +54,7 @@
 	color: white;
 	font-size: 30px;
 	font-family: 'Tilt Neon', cursive;
+	cursor: pointer;
 }
 
 .navbar .nav-links {

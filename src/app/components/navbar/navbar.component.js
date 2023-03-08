@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from '../../utils/context-provider';
 import { connectToWallet } from '../../utils/load-contracts';
-import { useLocation } from 'react-router';
+import { useLocation} from 'react-router';
+import { useNavigate } from'react-router-dom';
 
 function Navbar() {
 	const [modal, setModal] = useState(false);
 	const { address, setAddress } = useContext(Context);
 	const {pathname} = useLocation();
+	const navigate = useNavigate();
 
 	//   const { connect } = useConnect({
 	//     connector: new InjectedConnector(),
@@ -60,7 +62,7 @@ function Navbar() {
 						onClick={() => setModal(!modal)}
 						className={`toggle-btn ${modal ? 'flip-toggle' : 'reverse-toggle'}`}
 					/>
-					<h3 className="navbar-brand">Crypto State</h3>
+					<h3 className="navbar-brand" onClick={()=>navigate('/')}>Crypto State</h3>
 					<div className="nav-links center">
 						{NavLinks.map((link) => (
 							<Link
