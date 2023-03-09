@@ -4,7 +4,7 @@
 	width: 100%;
 	position: fixed;
 	padding: 0 15px;
-	background-color: rgba(17, 14, 14, 0.4);
+	background-color: var(--shade);
 	-webkit-backdrop-filter: blur(5px);
 	backdrop-filter: blur(5px);
 	z-index: 1000;

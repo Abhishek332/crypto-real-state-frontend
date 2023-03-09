@@ -2,7 +2,7 @@ import Navbar from "../components/navbar/navbar.component";
 import "./wrapper.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/home-page/home-page.component";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/footer/footer.component";
 import Property from "../pages/property-page/property-page.component";
 import Register from "../pages/register-page/register-page.component";
 import RecipeReviewCard from "../components/Detiles_page/Eetiles";

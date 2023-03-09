@@ -45,10 +45,6 @@ function Contectus() {
             </form>
           </section>
           {/* <!-- End of Contact --> */}
-    
-          {/* <!-- Footer --> */}
-         
-          {/* <!-- End of Footer --> */}
         </div>
         <script src="script.js"></script>
       </body>
