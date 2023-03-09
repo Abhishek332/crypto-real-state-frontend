@@ -132,10 +132,6 @@
   
   @media (max-width: 1000px) {
   
-    .popular-tours-heading {
-      font-size: 6rem;
-    }
-  
     .story-bg {
       transform: skewX(0);
     }
@@ -152,10 +148,6 @@
   }
   
   @media (max-width: 800px) {
-    .popular-tours-heading {
-      font-size: 5rem;
-    }
-  
     .contact-form {
       width: 90%;
     }
