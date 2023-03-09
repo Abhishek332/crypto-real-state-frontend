@@ -21,11 +21,12 @@
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.774);
     transition: 0.7s;
     flex-direction: column;
     justify-content: flex-start;
     padding: 0 20px;
+	backdrop-filter: blur(50px);
 }
 
 .nav-modal .nav-link{
