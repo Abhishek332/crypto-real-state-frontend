@@ -18,11 +18,11 @@
 	height: calc(100vh - 70px);
 	width: 300px;
 	z-index: 1000;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	bottom: 0;
 	background-color: rgba(255, 255, 255, 0.774);
-    transition: 0.7s;
+    transition: 0.6s;
     flex-direction: column;
     justify-content: flex-start;
     padding: 0 20px;
@@ -43,7 +43,7 @@
 	margin-right: 15px;
 	color: white;
 	font-size: 34px;
-	transition: 0.7s;
+	transition: 0.6s;
 	display: none;
 }
 
