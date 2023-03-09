@@ -1,9 +1,4 @@
- .cards-wrapper {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .card {
+.card {
     width: 35rem;
     position: relative;
     perspective: 150rem;
@@ -301,12 +296,7 @@
   /* End of Contact */
   
   @media (max-width: 1200px) {
-    .cards-wrapper {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .card {
+  .card {
       margin: 3rem 0;
     }
   
