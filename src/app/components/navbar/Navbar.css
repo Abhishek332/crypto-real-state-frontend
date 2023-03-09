@@ -76,7 +76,7 @@
 
 .nav-link:hover {
 	animation: nav-light 0.3s ease-in-out 1;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 .navbar button {

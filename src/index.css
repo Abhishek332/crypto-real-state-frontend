@@ -14,7 +14,7 @@
 }
 
 :root {
-	--primary-color: #0a51a1;
+	--primary-color: #0c4c94;
 	--secondary-color: #eee;
 	--white-color: #fff;
 	--grey-color: #555;
@@ -30,6 +30,24 @@
 
 .container {
 	width: 100%;
-	background-color: var(--secondary-color);
 	overflow: hidden;
+}
+
+section{
+	padding: 100px 15px;
+}
+
+section h1{
+	font-family: 'Tilt Neon', cursive;
+	font-size: 6rem;
+	text-align: center;
+	text-decoration: underline;
+	margin-bottom: 50px;
+	color:var(--primary-color);	
+}
+
+@media(max-width: 1024px){
+	section h1{
+		font-size: 4.5rem;
+	}
 }
