@@ -116,13 +116,7 @@
   /* End of Contact */
   
   @media (max-width: 1200px) {
-    
-  
-    .card {
-      margin: 3rem 0;
-    }
-  
-    .story-bg {
+     .story-bg {
       width: 85%;
     }
   }

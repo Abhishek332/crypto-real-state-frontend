@@ -4,15 +4,13 @@ import './trust-card.css';
 function TrustCard({img, keyPoints}) {
   return (
     <div>
-      <div class="card">
-        <div class="front-side">
-          <img src={img} alt="" class="card-image" />
-          <ul class="card-list">
+      <div class="trust-card center">
+      <img src={img} alt="" class="trust-card-image" />
+          <ul class="trust-card-list">
             {keyPoints.map((text) => (
-              <li class="card-list-item">{text}</li>
+              <li class="trust-card-list-item">{text}</li>
             ))}
           </ul>
-        </div>
       </div>
     </div>
   );
