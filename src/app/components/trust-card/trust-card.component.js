@@ -1,13 +1,14 @@
 import React from "react";
+import './trust-card.css';  
 
-function HomeCard(props) {
+function TrustCard({img, keyPoints}) {
   return (
     <div>
       <div class="card">
         <div class="front-side">
-          <img src={props?.data?.img} alt="Forest" class="card-image" />
+          <img src={img} alt="" class="card-image" />
           <ul class="card-list">
-            {props?.data?.text.map((text) => (
+            {keyPoints.map((text) => (
               <li class="card-list-item">{text}</li>
             ))}
           </ul>
@@ -17,4 +18,4 @@ function HomeCard(props) {
   );
 }
 
-export default HomeCard;
+export default TrustCard;

@@ -4,7 +4,9 @@ import Contectus from '../../components/Contact/contactus';
 import IndiaLogo from '../../components/india-logo/india-logo.component';
 import Header from '../../components/header/header.component';
 import House from '../../assets/house.jpeg';
-import VarificationProcess from '../../components/varification-process/varification-process.component';
+import CardsContainer from '../../components/cards-container/cards-container.component';
+import { TrustFactors } from '../../data/trust-factors.data';
+import TrustCard from '../../components/trust-card/trust-card.component';
 
 function Home() {
 	
@@ -19,7 +21,7 @@ function Home() {
 					</p>
 				</div>
 			</Header>
-			<VarificationProcess/>
+			<CardsContainer heading="Trust Factors" dataList={TrustFactors.data} child={TrustCard}/>
 			<Contectus />
 		</div>
 	);
