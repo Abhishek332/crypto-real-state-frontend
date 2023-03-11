@@ -3,7 +3,7 @@ import './header.css';
 
 function Header({ title, logo: Logo, background = '', children, head = '' }) {
 	const headerStyle = {
-		background: `linear-gradient(rgba(18, 113, 255, 0.5), rgba(18, 113, 255, 0.3)), url(${background}) center/cover`,
+		background: `linear-gradient(rgb(0 0 0 / 50%), rgba(18, 113, 255, 0.3)), url(${background}) center/cover`,
 	};
 
 	return (

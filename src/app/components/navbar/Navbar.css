@@ -21,19 +21,19 @@
 	position: fixed;
 	left: 0;
 	bottom: 0;
-	background-color: rgba(255, 255, 255, 0.774);
+	background: linear-gradient(rgba(94, 123, 167, 0.3), rgb(0 0 0 / 50%));
     transition: 0.6s;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 0 20px;
-	backdrop-filter: blur(50px);
+    padding: 0 10px;
+	backdrop-filter: blur(8px);
 }
 
 .nav-modal .nav-link{
-    color: var(--primary-color);
+    color: var(--white-color);
     font-size: 14px;
     width: 100%;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--white-color);
     text-align: center;
     text-shadow: none;
     padding: 15px;
@@ -41,7 +41,7 @@
 
 .navbar .toggle-btn {
 	margin-right: 15px;
-	color: white;
+	color: var(--white-color);
 	font-size: 34px;
 	transition: 0.6s;
 	display: none;
@@ -52,7 +52,7 @@
 }
 
 .navbar .navbar-brand {
-	color: white;
+	color: var(--white-color);
 	font-size: 30px;
 	font-family: 'Tilt Neon', cursive;
 	cursor: pointer;
@@ -63,7 +63,7 @@
 }
 
 .nav-link {
-	color: white;
+	color: var(--white-color);
 	margin: 0 4px;
 	padding: 5px;
 	transition: all 0.3s;
