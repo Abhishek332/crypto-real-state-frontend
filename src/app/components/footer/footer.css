@@ -6,11 +6,11 @@ footer {
 }
 
 footer > *{
-	background: linear-gradient(rgb(255, 255, 255), rgb(255, 223, 223));
 	width: 100%;
 }
 
 footer .links{
+	background: black;;
 	padding: 0 10vw;
 	justify-content: space-around;
 }
@@ -18,9 +18,13 @@ footer .links{
 footer .links .nav-link{
 	font-size: 14px;
 	padding: 15px;
-	font-weight: 600;
+	font-weight: 500;
 	color: var(--light-grey-color);
 	text-shadow: none;
+}
+
+footer .links .nav-link:hover{
+color: var(--white-color);
 }
 
 footer p{
@@ -29,4 +33,5 @@ footer p{
 	text-align: center;
 	font-size: 14px;
 	font-weight: 500;
+	background-color: goldenrod;
 }
