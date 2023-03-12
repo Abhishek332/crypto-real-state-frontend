@@ -3,8 +3,7 @@ import './trust-card.css';
 
 function TrustCard({img, keyPoints}) {
   return (
-    <div>
-      <div class="trust-card center">
+    <div class="trust-card center">
       <img src={img} alt="" class="trust-card-image" />
           <ul class="trust-card-list">
             {keyPoints.map((text) => (
@@ -12,7 +11,6 @@ function TrustCard({img, keyPoints}) {
             ))}
           </ul>
       </div>
-    </div>
   );
 }
 
