@@ -64,6 +64,3 @@ input{
   .center12 h1 span:nth-child(8) {
     animation: drop-letters 5s 0.5s infinite;
   }
-  .contact_bg{
-height: 100vh;
-  }

@@ -1,6 +1,5 @@
 import React from 'react';
-import './home-page.css';
-import Contectus from '../../components/Contact/contactus';
+import ContactUs from '../../components/contact-us/contact-us.component';
 import IndiaLogo from '../../components/india-logo/india-logo.component';
 import Header from '../../components/header/header.component';
 import House from '../../assets/house.jpeg';
@@ -12,7 +11,7 @@ function Home() {
 	
 
 	return (
-		<div>
+		<>
 			<Header logo={IndiaLogo} background={House} >
 				<div className="header-text">
 					<h1 className="heading">Around the India</h1>
@@ -22,8 +21,8 @@ function Home() {
 				</div>
 			</Header>
 			<CardsContainer heading="Trust Factors" dataList={TrustFactors.data} child={TrustCard}/>
-			<Contectus />
-		</div>
+			<ContactUs />
+		</>
 	);
 }
 
