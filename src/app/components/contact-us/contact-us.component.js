@@ -4,7 +4,7 @@ import './contact-us.css'
 function ContactUs() {
     return (
       <section class="contact">
-        <h1>Contact Us</h1>
+        <h1 class="contact-heading">Contact Us</h1>
         <form class="contact-form center">
           <div class="input-group">
             <label>Full Name *</label>
