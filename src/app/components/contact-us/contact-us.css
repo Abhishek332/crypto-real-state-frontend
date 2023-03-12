@@ -6,13 +6,8 @@
 }
 
 .contact-heading {
-	font-size: 7rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.5rem;
 	color: var(--white-color);
 	text-shadow: 0 1rem 2rem #000;
-	margin-bottom: 8rem;
 }
 
 .contact-form {
