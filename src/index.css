@@ -1,13 +1,61 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Tilt+Neon&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+	list-style-type: none;
+	text-decoration: none;
+	box-sizing: border-box;
+	outline: none;
+	font-size: 12px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+	--primary-color: #0c4c94;
+	--secondary-color: #eee;
+	--white-color: #fff;
+	--grey-color: #555;
+	--light-grey-color: #777;
+	--shade: rgba(17, 14, 14, 0.4);
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	width: 100%;
+	overflow: hidden;
+}
+
+section {
+	padding: 100px 15px;
+	text-align: center;
+}
+
+section h1 {
+	font-family: 'Tilt Neon', cursive;
+	font-size: 7rem;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: underline;
+	text-transform: uppercase;
+	margin-bottom: 70px;
+	color: var(--primary-color);
+	letter-spacing: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+	section {
+		padding: 70px 10px;
+	}
+	section h1 {
+		font-size: 5rem;
+		margin-bottom: 30px;
+	}
 }
