@@ -5,12 +5,43 @@ import Footer from "../components/footer/footer.component";
 import Property from "../pages/property-page/property-page.component";
 import Register from "../pages/register-page/register-page.component";
 import RecipeReviewCard from "../components/Detiles_page/Eetiles";
+import { useEffect, useState } from "react";
+import { getChainId } from "../utils/utils";
+import { ARBI_TESTNET_CHAIN_ID } from "../utils/constants";
+import { getAccount } from "@wagmi/core";
+import SwitchNetwork from "../components/switchNetwork/SwitchNetwork";
 
 // you can import like this
 const Router = ()=>{
+  const [chainId, setChainID] = useState(ARBI_TESTNET_CHAIN_ID);  
+  const checkChainChanged = async ()=>{
+    const netowrkChainId =  await getChainId();
+    if ( netowrkChainId !== ARBI_TESTNET_CHAIN_ID) {
+      setChainID(netowrkChainId);
+
+    }
+  }
+  if (window.ethereum) {
+    window.ethereum.on("chainChanged", () => {
+      checkChainChanged()
+      window.location.reload();
+    });
+  }
+
+
+  useEffect(() => {
+    checkChainChanged()
+  }, [])
+
   return (
     <div className="container">
-      <BrowserRouter>
+      {
+        chainId !== ARBI_TESTNET_CHAIN_ID ?  <div>
+          <SwitchNetwork/>
+        </div> :
+        <div>
+           <BrowserRouter>
+
         <Navbar />
         <div className="page-container">
         <Routes>
@@ -22,6 +53,9 @@ const Router = ()=>{
           </div>
         <Footer />
       </BrowserRouter>
+        </div>
+      }
+     
     </div>
   );
 }

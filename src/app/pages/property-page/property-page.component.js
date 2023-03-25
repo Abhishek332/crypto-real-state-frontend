@@ -24,7 +24,6 @@ function Property() {
       arr[x - 1] = await contractInstance?.methods.allCryptostate(x).call();
       // console.log(y);
     }
-
     if (arr.length > 0) {
       setloding(false);
     }
