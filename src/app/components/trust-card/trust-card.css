@@ -2,16 +2,17 @@
 	width: 32rem;
 	border-radius: 0.3rem;
 	text-align: center;
-    box-shadow: 0 0 3px rgb(188, 188, 188);
-    margin: 25px;
-    flex-direction: column;
-    background-color: rgba(175, 175, 175, 0.102);
+	box-shadow: 0 0 3px rgb(188, 188, 188);
+	margin: 25px;
+	flex-direction: column;
+	background-color: rgba(175, 175, 175, 0.102);
 }
 
 .trust-card-image {
 	width: 100%;
-    border-bottom: 1px solid grey;
+	border-bottom: 1px solid grey;
 	border-radius: 0.3rem 0.3rem 0 0;
+	filter: grayscale(1);
 }
 
 .trust-card-list {
@@ -40,8 +41,8 @@
 	cursor: pointer;
 }
 
-@media(max-width: 1024px){
-	.trust-card{
+@media (max-width: 1024px) {
+	.trust-card {
 		width: 90%;
 	}
 }
