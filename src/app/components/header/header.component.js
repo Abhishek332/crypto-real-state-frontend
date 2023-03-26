@@ -11,6 +11,11 @@ function Header({ title, logo: Logo, background = '', children, head = '' }) {
 			className={`center ${head ? 'head' : 'header'}`}
 			style={background ? headerStyle : {}}
 		>
+			{title && (
+				<div className="header-text">
+					<h1 className="heading">{title}</h1>
+				</div>
+			)}
 			{children && children}
 			{Logo && <Logo />}
 		</header>
