@@ -4,12 +4,14 @@ import MediaCard from "./card/Card";
 
 import "./property-page.css";
 import { loadContracts } from "../../utils/load-contracts";
+import Loader from "../../components/loader/Loder";
+import { ethers } from "ethers";
 
 function Property() {
   const { contractInstance, address, setContract } = useContext(Context);
   const [allProperty, setallProperty] = useState();
-  console.log(contractInstance);
-  const [loding, setloding] = useState(false);
+
+  const [loading, setloading] = useState(false);
 
   const getallProp = async () => {
     const cr = await loadContracts();
@@ -24,16 +26,15 @@ function Property() {
       arr[x - 1] = await contractInstance?.methods.allCryptostate(x).call();
       // console.log(y);
     }
-    if (arr.length > 0) {
-      setloding(false);
-    }
     setallProperty(arr);
+    setloading(false);
   };
   const loadContractIN = async () => {
     getallProp();
   };
-
+  console.log(loading);
   useEffect(() => {
+    setloading(true);
     loadContractIN();
   }, [contractInstance === undefined]);
 
@@ -52,7 +53,7 @@ function Property() {
               forSale: item.forSale,
               oldOwener: item.perviousOwner,
               place: item.placeAddress,
-              price: item.price,
+              price: ethers.utils.formatEther( item.price ),
               tokenId: item.tokenId,
               tokenURI: item.tokenURI,
               placename: item.tokenName,

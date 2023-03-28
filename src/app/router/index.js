@@ -5,59 +5,66 @@ import Footer from "../components/footer/footer.component";
 import Property from "../pages/property-page/property-page.component";
 import Register from "../pages/register-page/register-page.component";
 import RecipeReviewCard from "../components/Detiles_page/Eetiles";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getChainId } from "../utils/utils";
 import { ARBI_TESTNET_CHAIN_ID } from "../utils/constants";
 import { getAccount } from "@wagmi/core";
 import SwitchNetwork from "../components/switchNetwork/SwitchNetwork";
+import { useConnect } from "wagmi";
+import { Context } from "../utils/context-provider";
 
 // you can import like this
-const Router = ()=>{
-  const [chainId, setChainID] = useState(ARBI_TESTNET_CHAIN_ID);  
-  const checkChainChanged = async ()=>{
-    const netowrkChainId =  await getChainId();
-    if ( netowrkChainId !== ARBI_TESTNET_CHAIN_ID) {
+const Router = () => {
+  const [chainId, setChainID] = useState(ARBI_TESTNET_CHAIN_ID);
+  const {setAddress} = useContext(Context)
+  const checkChainChanged = async () => {
+    console.log("data")
+    const netowrkChainId = await getChainId();
+    if (netowrkChainId !== ARBI_TESTNET_CHAIN_ID) {
       setChainID(netowrkChainId);
-
     }
-  }
+  };
   if (window.ethereum) {
     window.ethereum.on("chainChanged", () => {
-      checkChainChanged()
+      checkChainChanged();
       window.location.reload();
     });
   }
-
-
+  if (window.ethereum) {
+    window.ethereum.on("accountsChanged", function (accounts) {
+      // Time to reload your interface with accounts[0]!
+      const acc = getAccount();
+      setAddress(acc);
+      window.location.reload();
+    });}
   useEffect(() => {
-    checkChainChanged()
-  }, [])
+    checkChainChanged();
+  }, []);
 
   return (
     <div className="container">
-      {
-        chainId !== ARBI_TESTNET_CHAIN_ID ?  <div>
-          <SwitchNetwork/>
-        </div> :
+      {chainId !== ARBI_TESTNET_CHAIN_ID ? (
         <div>
-           <BrowserRouter>
-
-        <Navbar />
-        <div className="page-container">
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/moreInfo" element={<RecipeReviewCard />} />
-          <Route path="/properties" element={<Property />} />
-          <Route path="/Register" element={<Register />} />
-        </Routes>
-          </div>
-        <Footer />
-      </BrowserRouter>
+          <SwitchNetwork />
         </div>
-      }
-     
+      ) : (
+        <div>
+          <BrowserRouter>
+            <Navbar />
+            <div className="page-container">
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/moreInfo" element={<RecipeReviewCard />} />
+                <Route path="/properties" element={<Property />} />
+                <Route path="/Register" element={<Register />} />
+              </Routes>
+            </div>
+            <Footer />
+          </BrowserRouter>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Router;
