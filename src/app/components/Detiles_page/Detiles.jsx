@@ -5,9 +5,11 @@ import Button from "@mui/material/Button";
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../utils/context-provider";
 import { Typography } from "@mui/material";
+import Loader from "../loader/Loder";
 
 function Detiles() {
   const { contractInstance, address } = useContext(Context);
+
   const buyItem = async (e) => {
     e.preventDefault();
 
@@ -18,13 +20,14 @@ function Detiles() {
     let consts = await contractInstance?.methods
       .buyToken(loaction.state?.tokenId)
       .send({ from: address, value: price });
+      setLoading(false)
   };
-  console.log(address);
   const putonSalle = async (e) => {
     e.preventDefault();
     let consts = await contractInstance.methods
       .toggleForSale(loaction.state?.tokenId)
       .send({ from: address });
+    
   };
   const chnagePrice = async (e) => {
     e.preventDefault();
@@ -34,19 +37,20 @@ function Detiles() {
     let consts = await contractInstance.methods
       .changeTokenPrice(loaction.state?.tokenId, price)
       .send({ from: address, value: listingPrice });
+   
   };
   const loaction = useLocation();
   console.log(loaction);
   let forsale = loaction.state.forSale;
-
-  console.log("data", forsale);
   return (
     <div>
-      <div className="image">
-        <img src={loaction.state?.Image} alt="" />
-      </div>
+         {
+          loading ?  <Loader/> : ( <div className="card">
 
-      <div className="allinfo">
+           <div className="image">
+          <img src={loaction.state?.Image} alt="" />
+        </div>
+        <div className="allinfo">
         <Typography variant="h6" csolor="text.secondary">
           <h3>TokenId:</h3> {loaction.state?.tokenId}
         </Typography>{" "}
@@ -96,6 +100,12 @@ function Detiles() {
           )}
         </div>
       )}
+      </div>
+          )
+         }
+    
+      
+      
     </div>
   );
 }

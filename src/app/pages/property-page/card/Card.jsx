@@ -9,7 +9,7 @@ import "./Card.css";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Link } from "react-router-dom";
 export default function MediaCard({ pro }) {
-  console.log("data", pro)
+
   return (
     <div className="Card">
       <Card sx={{ maxWidth: 345 }}>
