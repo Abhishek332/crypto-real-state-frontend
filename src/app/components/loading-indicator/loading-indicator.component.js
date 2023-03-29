@@ -14,7 +14,7 @@ const LoadingIndicator = ({ indicator }) => {
 	};
 
 	return (
-		<div id="loading-indicator" class="center">
+		<div id="loading-indicator" className="center">
 			<Lottie options={defaultOptions} height={275} width={275} />
 		</div>
 	);

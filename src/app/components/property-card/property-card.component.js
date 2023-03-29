@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Link } from 'react-router-dom';
 import './property-card.css';
+import { ethers } from 'ethers';
 
 const PropertyCard = ({
 	currentOwner,
@@ -35,7 +36,7 @@ const PropertyCard = ({
 					</Typography>
 					<Typography variant="h6" color="text.secondary">
 						<strong>Price: </strong>
-						{price} ETH
+						{ethers.utils.formatEther(price)} ETH
 					</Typography>
 					<Typography variant="h6" color="text.secondary">
 						<strong>Token: </strong>
@@ -50,7 +51,7 @@ const PropertyCard = ({
 							forSale,
 							oldowner: perviousOwner,
 							address: placeAddress,
-							price,
+							price: ethers.utils.formatEther(price),
 							tokenId,
 							Image: tokenURI,
 							Place: placeName,

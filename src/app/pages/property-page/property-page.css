@@ -1,3 +1,7 @@
 #property-page {
 	min-height: 90vh;
 }
+
+#property-page section {
+	padding: 40px 2%;
+}

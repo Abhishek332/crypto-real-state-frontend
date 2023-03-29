@@ -21,9 +21,7 @@ function PropertyPage() {
 			setContract(contract);
 		}
 
-		await setTimeout(() => {}, 10000);
-
-		const totalProperties = await contractInstance.methods
+		const totalProperties = await contractInstance?.methods
 			.getNumberOfTokensMinted()
 			.call();
 		const tempProperties = [];
@@ -34,7 +32,7 @@ function PropertyPage() {
 			propertyIndex++
 		) {
 			tempProperties.push(
-				await contractInstance.methods.allCryptostate(propertyIndex).call()
+				await contractInstance?.methods.allCryptostate(propertyIndex).call()
 			);
 		}
 
@@ -52,6 +50,7 @@ function PropertyPage() {
 
 	return (
 		<div id="property-page">
+			{console.log('ye chala')}
 			<Header title="Properties" head background={House1} />
 			<CardsContainer dataList={allProperties} child={PropertyCard} />
 		</div>
