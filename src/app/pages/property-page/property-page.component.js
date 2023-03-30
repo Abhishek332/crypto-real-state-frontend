@@ -1,69 +1,60 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../../utils/context-provider";
-import MediaCard from "./card/Card";
+import React, { useContext, useEffect, useState, useCallback } from 'react';
+import { Context } from '../../utils/context-provider';
+import { loadContracts } from '../../utils/load-contracts';
+import LoadingIndicator from '../../components/loading-indicator/loading-indicator.component';
+import BuildingLoader from '../../assets/building-loader.json';
+import Header from '../../components/header/header.component';
+import House1 from '../../assets/house1.webp';
+import CardsContainer from '../../components/cards-container/cards-container.component';
+import PropertyCard from '../../components/property-card/property-card.component';
+import './property-page.css';
 
-import "./property-page.css";
-import { loadContracts } from "../../utils/load-contracts";
-import Loader from "../../components/loader/Loder";
-import { ethers } from "ethers";
+function PropertyPage() {
+	const { contractInstance, setContract } = useContext(Context);
+	const [allProperties, setAllProperties] = useState([]);
+	const [loading, setLoading] = useState(true);
 
-function Property() {
-  const { contractInstance, address, setContract } = useContext(Context);
-  const [allProperty, setallProperty] = useState();
+	const getAllProperties = useCallback(async () => {
+		if (!contractInstance) {
+			setLoading(true);
+			const contract = await loadContracts();
+			setContract(contract);
+		}
 
-  const [loading, setloading] = useState(false);
+		const totalProperties = await contractInstance?.methods
+			.getNumberOfTokensMinted()
+			.call();
+		const tempProperties = [];
 
-  const getallProp = async () => {
-    const cr = await loadContracts();
-    setContract(cr);
+		for (
+			let propertyIndex = 1;
+			propertyIndex <= totalProperties;
+			propertyIndex++
+		) {
+			tempProperties.push(
+				await contractInstance?.methods.allCryptostate(propertyIndex).call()
+			);
+		}
 
-    let index = await contractInstance?.methods
-      .getNumberOfTokensMinted()
-      .call();
-    let arr = [index];
+		setAllProperties(tempProperties);
+		setLoading(false);
+	}, [contractInstance, setContract]);
 
-    for (let x = 1; x <= index; x++) {
-      arr[x - 1] = await contractInstance?.methods.allCryptostate(x).call();
-      // console.log(y);
-    }
-    setallProperty(arr);
-    setloading(false);
-  };
-  const loadContractIN = async () => {
-    getallProp();
-  };
-  console.log(loading);
-  useEffect(() => {
-    setloading(true);
-    loadContractIN();
-  }, [contractInstance === undefined]);
+	useEffect(() => {
+		getAllProperties();
+	}, [getAllProperties]);
 
-  return (
-    <div className="main ">
-      {" "}
-      {address === undefined ? (
-        <div>
-          <h1>Please connect your metamask</h1>
-        </div>
-      ) : (
-        allProperty?.map((item) => (
-          <MediaCard
-            pro={{
-              owner: item.currentOwner,
-              forSale: item.forSale,
-              oldOwener: item.perviousOwner,
-              place: item.placeAddress,
-              price: ethers.utils.formatEther( item.price ),
-              tokenId: item.tokenId,
-              tokenURI: item.tokenURI,
-              placename: item.tokenName,
-              forsale: item.forSale,
-            }}
-          />
-        ))
-      )}
-    </div>
-  );
+	if (loading) {
+		return <LoadingIndicator indicator={BuildingLoader} />;
+	}
+
+	return (
+		<div id="property-page">
+			{console.log('ye chala')}
+			<Header title="Properties" head background={House1} />
+			<CardsContainer dataList={allProperties} child={PropertyCard} />
+		</div>
+	);
 }
 
-export default Property;
+export default PropertyPage;

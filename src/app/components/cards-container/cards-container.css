@@ -1,4 +1,6 @@
-.cards-wrapper{
-    flex-wrap: wrap;
-    width: 100%;
+.cards-wrapper {
+	display: inline-flex;
+	gap: 2%;
+	flex-wrap: wrap;
+	width: 100%;
 }
