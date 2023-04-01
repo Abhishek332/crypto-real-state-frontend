@@ -50,7 +50,6 @@ function PropertyPage() {
 
 	return (
 		<div id="property-page">
-			{console.log('ye chala')}
 			<Header title="Properties" head background={House1} />
 			<CardsContainer dataList={allProperties} child={PropertyCard} />
 		</div>
