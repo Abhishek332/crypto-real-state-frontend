@@ -9,7 +9,7 @@
 	animation: rotational 1s ease-out;
 }
 
-#property-details .details .center {
+#property-details .details {
 	animation: slideThrough 1s ease-out;
 	padding: 20px;
 	justify-content: space-around;
@@ -28,6 +28,17 @@
 #property-details .details .center .values {
 	max-width: 60%;
 	color: var(--grey-color);
+}
+
+#property-details .details .card-actions {
+	padding: 8px 0;
+	flex-wrap: wrap;
+}
+
+#property-details .details .card-actions button {
+	background-color: var(--primary-color);
+	color: var(--white-color);
+	flex: 1;
 }
 
 @media (max-width: 820px) {

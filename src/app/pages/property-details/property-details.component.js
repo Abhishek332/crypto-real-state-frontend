@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router';
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import {
 	Card,
 	CardMedia,
@@ -10,9 +10,11 @@ import {
 import './property-details.css';
 import { Context } from '../../utils/context-provider';
 import { ethers } from 'ethers';
+import AlertDialog from '../../components/alert-dialog/alert-dialog.component';
 
 const PropertyDetails = () => {
 	const { contractInstance, address } = useContext(Context);
+	const [isDialogOpen, setIsDialogOpen] = useState(false);
 	const {
 		state: {
 			propertyName,
@@ -25,7 +27,19 @@ const PropertyDetails = () => {
 		},
 	} = useLocation();
 
+	const openPopupForMetamaskConnection = () => {
+		setIsDialogOpen(true);
+		setTimeout(() => {
+			setIsDialogOpen(false);
+		}, 1200);
+	};
+
 	const putOrRemoveFromSale = async (e) => {
+		if (!address) {
+			openPopupForMetamaskConnection();
+			return;
+		}
+
 		e.preventDefault();
 		await contractInstance?.methods
 			.toggleForSale(tokenId)
@@ -33,6 +47,11 @@ const PropertyDetails = () => {
 	};
 
 	const changePrice = async (e) => {
+		if (!address) {
+			openPopupForMetamaskConnection();
+			return;
+		}
+
 		e.preventDefault();
 		let listingPrice = await contractInstance?.methods.getListingPrice().call();
 		let p = propertyPrice / 2;
@@ -43,10 +62,13 @@ const PropertyDetails = () => {
 	};
 
 	const buyProperty = (e) => {
-		e.preventDefault();
+		if (!address) {
+			openPopupForMetamaskConnection();
+			return;
+		}
 
+		e.preventDefault();
 		const price = ethers.utils.parseUnits(propertyPrice.toString(), 'ether');
-		console.log(address, price);
 		contractInstance.methods
 			.buyToken(tokenId)
 			.send({ from: address, value: price });
@@ -83,32 +105,44 @@ const PropertyDetails = () => {
 					</ul>
 				</div>
 
-				{propertyOwner.toLowerCase() === address ? (
-					<CardActions disableSpacing>
-						<Button className="btn" variant="outlined" onClick={changePrice}>
-							Increase Price
-						</Button>
-
-						<Button
-							className="btn"
-							variant="outlined"
-							onClick={putOrRemoveFromSale}
-						>
-							{propertyOnSale ? 'Remove from Sale' : 'Put on Sale'}
-						</Button>
-					</CardActions>
-				) : (
-					<CardActions disableSpacing>
-						{propertyOnSale ? (
-							<Button variant="outlined" onClick={buyProperty}>
-								BUY
+				<CardActions className="card-actions center" disableSpacing>
+					{propertyOwner.toLowerCase() !== address ? (
+						<>
+							<Button className="btn" variant="outlined" onClick={changePrice}>
+								Increase Price
 							</Button>
-						) : (
-							<Typography paragraph>Not for sale</Typography>
-						)}
-					</CardActions>
-				)}
+
+							<Button
+								className="btn"
+								variant="outlined"
+								onClick={putOrRemoveFromSale}
+							>
+								{propertyOnSale ? 'Remove from Sale' : 'Put on Sale'}
+							</Button>
+						</>
+					) : propertyOnSale ? (
+						<Button variant="outlined" onClick={buyProperty}>
+							BUY
+						</Button>
+					) : (
+						<Typography
+							paragraph
+							sx={{
+								fontWeight: 500,
+								color: '#0c4c94',
+								textShadow: '0 0 1px rgba(0,0,0, 5)',
+							}}
+						>
+							NOT FOR SALE
+						</Typography>
+					)}
+				</CardActions>
 			</Card>
+			<AlertDialog
+				title="Metamask is not connected"
+				text="Please connect your metamask account"
+				isDialogOpen={isDialogOpen}
+			/>
 		</div>
 	);
 };
