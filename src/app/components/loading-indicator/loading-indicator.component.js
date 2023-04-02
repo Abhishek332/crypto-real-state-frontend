@@ -2,7 +2,7 @@ import React from 'react';
 import './loading-indicator.css';
 import Lottie from 'react-lottie';
 
-const LoadingIndicator = ({ indicator }) => {
+const LoadingIndicator = ({ indicator, text, image = true }) => {
 	const defaultOptions = {
 		loop: true,
 		autoplay: true,
@@ -15,7 +15,12 @@ const LoadingIndicator = ({ indicator }) => {
 
 	return (
 		<div id="loading-indicator" className="center">
-			<Lottie options={defaultOptions} height={275} width={275} />
+			{image ? (
+				<img className="image" src={indicator} alt="" />
+			) : (
+				<Lottie options={defaultOptions} height={275} width={275} />
+			)}
+			{text && <h1 style={{ color: '#0c4c94' }}>{text}</h1>}
 		</div>
 	);
 };

@@ -1,62 +1,70 @@
-.shareoptin{
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+.register-page {
+	height: 90vh;
+	background: url('https://cdn.wallpapersafari.com/44/70/6GExLF.jpg')
+		center/cover no-repeat;
+	padding-top: 70px;
+}
+
+.shareoptin {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
 }
 .shareoptin > span {
-    margin: 10px;
+	margin: 10px;
 }
-.Register{
-    padding: 15rem 0 20rem 0;
-    text-align: center;
-    background: url("https://cdn.wallpapersafari.com/44/70/6GExLF.jpg") center no-repeat;
-    background-size: cover;
-    animation: contact-bg 35s infinite;
+.Register {
+	padding: 15rem 0 20rem 0;
+	text-align: center;
+	background: url('https://cdn.wallpapersafari.com/44/70/6GExLF.jpg') center
+		no-repeat;
+	background-size: cover;
+	animation: contact-bg 35s infinite;
 }
 
 .center12 h1 {
-    display: flex;
-  }
-  
-  .center12 h1 span {
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    background-color: var(--white-color);
-    width: 3.5rem;
-    height: 3.5rem;
-    margin: 0.5rem;
-    border-radius: 50%;
-  }
-  
-  .center12 h1 span:nth-child(1) {
-    animation: drop-letters 5s 0.1s infinite;
-  }
-  
-  .center12 h1 span:nth-child(2) {
-    animation: drop-letters 5s 0.2s infinite;
-  }
-  
-  .center12 h1 span:nth-child(3) {
-    animation: drop-letters 5s 0.3s infinite;
-  }
-  
-  .center12 h1 span:nth-child(4) {
-    animation: drop-letters 5s 0.4s infinite;
-  }
-  
-  .center12 h1 span:nth-child(5) {
-    animation: drop-letters 5s 0.5s infinite;
-  }
-  
-  .center12 h1 span:nth-child(6) {
-    animation: drop-letters 5s 0.6s infinite;
-  }
-  
-  .center12 h1 span:nth-child(7) {
-    animation: drop-letters 5s 0.7s infinite;
-  }
-  .center12 h1 span:nth-child(8) {
-    animation: drop-letters 5s 0.5s infinite;
-  }
+	display: flex;
+}
+
+.center12 h1 span {
+	font-size: 2rem;
+	font-weight: 900;
+	color: var(--primary-color);
+	text-transform: uppercase;
+	background-color: var(--white-color);
+	width: 3.5rem;
+	height: 3.5rem;
+	margin: 0.5rem;
+	border-radius: 50%;
+}
+
+.center12 h1 span:nth-child(1) {
+	animation: drop-letters 5s 0.1s infinite;
+}
+
+.center12 h1 span:nth-child(2) {
+	animation: drop-letters 5s 0.2s infinite;
+}
+
+.center12 h1 span:nth-child(3) {
+	animation: drop-letters 5s 0.3s infinite;
+}
+
+.center12 h1 span:nth-child(4) {
+	animation: drop-letters 5s 0.4s infinite;
+}
+
+.center12 h1 span:nth-child(5) {
+	animation: drop-letters 5s 0.5s infinite;
+}
+
+.center12 h1 span:nth-child(6) {
+	animation: drop-letters 5s 0.6s infinite;
+}
+
+.center12 h1 span:nth-child(7) {
+	animation: drop-letters 5s 0.7s infinite;
+}
+.center12 h1 span:nth-child(8) {
+	animation: drop-letters 5s 0.5s infinite;
+}
