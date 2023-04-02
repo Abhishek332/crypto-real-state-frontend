@@ -64,9 +64,8 @@ function Navbar() {
 					</h3>
 					<div className="nav-links center">
 						{NavLinks.map((link) =>
-							link.name === 'Register' && address !== GOVT_ADDR ? (
-								''
-							) : (
+							link.name === 'Register' &&
+							address !== GOVT_ADDR.toLowerCase() ? null : (
 								<Link
 									className={`nav-link ${
 										pathname === link.path ? 'active' : ''
@@ -94,16 +93,19 @@ function Navbar() {
 						: { transform: 'translateX(-100%)' }
 				}
 			>
-				{NavLinks.map((link) => (
-					<Link
-						className={`nav-link ${pathname === link.path ? 'active' : ''}`}
-						to={link.path}
-						key={link.name}
-						onClick={() => setModal(!modal)}
-					>
-						{link.name}
-					</Link>
-				))}
+				{NavLinks.map((link) =>
+					link.name === 'Register' &&
+					address !== GOVT_ADDR.toLowerCase() ? null : (
+						<Link
+							className={`nav-link ${pathname === link.path ? 'active' : ''}`}
+							to={link.path}
+							key={link.name}
+							onClick={() => setModal(!modal)}
+						>
+							{link.name}
+						</Link>
+					)
+				)}
 			</div>
 		</>
 	);

@@ -73,7 +73,7 @@ function Register() {
 		// router.push("/properties");
 	};
 
-	if (address === GOVT_ADDR) {
+	if (address === GOVT_ADDR.toLowerCase()) {
 		return (
 			<section className="contact">
 				<Typography gutterBottom variant="h3" align="center" color={'white'}>
