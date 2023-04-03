@@ -61,17 +61,18 @@ const PropertyDetails = () => {
 			.send({ from: address, value: listingPrice });
 	};
 
-	const buyProperty = (e) => {
+	const buyProperty = async(e) => {
 		if (!address) {
 			openPopupForMetamaskConnection();
 			return;
 		}
 
 		e.preventDefault();
-		const price = ethers.utils.parseUnits(propertyPrice.toString(), 'ether');
-		contractInstance.methods
-			.buyToken(tokenId)
-			.send({ from: address, value: price });
+		console.log(tokenId)
+		const dataPrice = ethers.utils.parseUnits(propertyPrice.toString(), 'ether');
+	   await contractInstance.methods
+			.buyToken(tokenId,dataPrice)
+			.send({ from: address, value: dataPrice });
 	};
 
 	return (
@@ -106,7 +107,7 @@ const PropertyDetails = () => {
 				</div>
 
 				<CardActions className="card-actions center" disableSpacing>
-					{propertyOwner.toLowerCase() !== address ? (
+					{propertyOwner.toLowerCase() === address ? (
 						<>
 							<Button className="btn" variant="outlined" onClick={changePrice}>
 								Increase Price
