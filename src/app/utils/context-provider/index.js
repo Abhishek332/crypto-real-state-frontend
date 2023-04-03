@@ -11,10 +11,10 @@ const ContextProvider = ({ children }) => {
 	const load = async () => {
 		const contract = await loadContracts();
 		setContract(contract);
-		// const acc = await window.ethereum.request({
-		// 	method: 'eth_requestAccounts',
-		// });
-		// setAddress(acc[0]);
+		const acc = await window.ethereum.request({
+			method: 'eth_requestAccounts',
+		});
+		setAddress(acc[0]);
 	};
 
 	useEffect(() => {

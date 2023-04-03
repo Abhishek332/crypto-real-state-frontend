@@ -1,9 +1,11 @@
-import Navbar from '../components/navbar/navbar.component';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from '../pages/home-page/home-page.component';
-import Footer from '../components/footer/footer.component';
-import Property from '../pages/property-page/property-page.component';
-import Register from '../pages/register-page/register-page.component';
+import {
+	HomePage,
+	PropertyPage,
+	RegisterPage,
+	PropertyDetailsPage,
+} from '../pages';
+import { Navbar, Footer } from '../components';
 import RecipeReviewCard from '../components/Detiles_page/Eetiles';
 import { useContext, useEffect, useState } from 'react';
 import { getChainId } from '../utils/utils';
@@ -22,7 +24,7 @@ const Router = () => {
 			setChainID(netowrkChainId);
 		}
 	};
-	
+
 	if (window.ethereum) {
 		window.ethereum.on('chainChanged', () => {
 			checkChainChanged();
@@ -36,7 +38,7 @@ const Router = () => {
 			window.location.reload();
 		});
 	}
-		
+
 	useEffect(() => {
 		checkChainChanged();
 	}, []);
@@ -53,10 +55,14 @@ const Router = () => {
 						<Navbar />
 						<div className="page-container">
 							<Routes>
-								<Route path="/" element={<Home />}></Route>
+								<Route path="/" element={<HomePage />}></Route>
 								<Route path="/moreInfo" element={<RecipeReviewCard />} />
-								<Route path="/properties" element={<Property />} />
-								<Route path="/Register" element={<Register />} />
+								<Route path="/properties" element={<PropertyPage />} />
+								<Route
+									path="/property-details"
+									element={<PropertyDetailsPage />}
+								/>
+								<Route path="/Register" element={<RegisterPage />} />
 							</Routes>
 						</div>
 						<Footer />
