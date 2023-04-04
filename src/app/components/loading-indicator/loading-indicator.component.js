@@ -2,7 +2,7 @@ import React from 'react';
 import './loading-indicator.css';
 import Lottie from 'react-lottie';
 
-const LoadingIndicator = ({ indicator, text, image = true }) => {
+const LoadingIndicator = ({ indicator, text, image = false }) => {
 	const defaultOptions = {
 		loop: true,
 		autoplay: true,
