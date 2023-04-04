@@ -6,7 +6,6 @@ import {
 	PropertyDetailsPage,
 } from '../pages';
 import { Navbar, Footer } from '../components';
-import RecipeReviewCard from '../components/Detiles_page/Eetiles';
 import { useContext, useEffect, useState } from 'react';
 import { getChainId } from '../utils/utils';
 import { ARBI_TESTNET_CHAIN_ID } from '../utils/constants';
@@ -17,7 +16,6 @@ import LoadingIndicator from '../components/loading-indicator/loading-indicator.
 import ChainChangeLoader from '../assets/chain-change-loader.json';
 import MetamaskIcon from '../assets/metamask-icon.svg';
 
-// you can import like this
 const Router = () => {
 	const [chainId, setChainID] = useState(ARBI_TESTNET_CHAIN_ID);
 	const { setAddress, isMetamaskInstalled } = useContext(Context);
@@ -77,7 +75,6 @@ const Router = () => {
 				<div className="page-container">
 					<Routes>
 						<Route path="/" element={<HomePage />}></Route>
-						<Route path="/moreInfo" element={<RecipeReviewCard />} />
 						<Route path="/properties" element={<PropertyPage />} />
 						<Route path="/property-details" element={<PropertyDetailsPage />} />
 						<Route path="/Register" element={<RegisterPage />} />

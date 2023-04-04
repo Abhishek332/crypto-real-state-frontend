@@ -46,33 +46,43 @@ const PropertyDetails = () => {
 			.send({ from: address });
 	};
 
-	const changePrice = async (e) => {
+	// const changePrice = async (e) => {
+	// 	if (!address) {
+	// 		openPopupForMetamaskConnection();
+	// 		return;
+	// 	}
+
+	// 	e.preventDefault();
+	// 	let listingPrice = await contractInstance?.methods.getListingPrice().call();
+	// 	let p = propertyPrice / 2;
+	// 	const price = ethers.utils.parseUnits(p.toString(), 'ether');
+	// 	await contractInstance?.methods
+	// 		.changeTokenPrice(tokenId, price)
+	// 		.send({ from: address, value: listingPrice });
+	// };
+
+	const buyProperty = async (e) => {
 		if (!address) {
 			openPopupForMetamaskConnection();
 			return;
 		}
 
 		e.preventDefault();
-		let listingPrice = await contractInstance?.methods.getListingPrice().call();
-		let p = propertyPrice / 2;
-		const price = ethers.utils.parseUnits(p.toString(), 'ether');
-		await contractInstance?.methods
-			.changeTokenPrice(tokenId, price)
-			.send({ from: address, value: listingPrice });
+		console.log(tokenId);
+		const dataPrice = ethers.utils.parseUnits(
+			propertyPrice.toString(),
+			'ether'
+		);
+		await contractInstance.methods
+			.buyToken(tokenId, dataPrice)
+			.send({ from: address, value: dataPrice });
 	};
 
-	const buyProperty = async(e) => {
-		if (!address) {
-			openPopupForMetamaskConnection();
-			return;
-		}
-
-		e.preventDefault();
-		console.log(tokenId)
-		const dataPrice = ethers.utils.parseUnits(propertyPrice.toString(), 'ether');
-	   await contractInstance.methods
-			.buyToken(tokenId,dataPrice)
-			.send({ from: address, value: dataPrice });
+	const listItems = {
+		'Property Name': propertyName,
+		'Property Address': propertyAddress,
+		'Property Price': `${propertyPrice} ETH`,
+		'Property Owner': propertyOwner.substr(0, 30),
 	};
 
 	return (
@@ -87,40 +97,32 @@ const PropertyDetails = () => {
 			<Card className="details" sx={{ minWidth: 400, padding: 1 }}>
 				<div className="center">
 					<ul className="headings">
-						<li>Property Name</li>
-						<li>Property Address</li>
-						<li>Property Price</li>
-						<li>Property Owner</li>
+						{Object.keys(listItems).map((item) => (
+							<li key={item}>{item}</li>
+						))}
 					</ul>
+
 					<ul className="headings">
-						<li>:</li>
-						<li>:</li>
-						<li>:</li>
-						<li>:</li>
+						{Object.keys(listItems).map((item) => (
+							<li key={item + ':'}>:</li>
+						))}
 					</ul>
 					<ul className="values">
-						<li>{propertyName}</li>
-						<li>{propertyAddress}</li>
-						<li>{propertyPrice} ETH</li>
-						<li>{propertyOwner.substr(0, 30)}</li>
+						{Object.keys(listItems).map((item) => (
+							<li key={listItems[item]}>{listItems[item]}</li>
+						))}
 					</ul>
 				</div>
 
 				<CardActions className="card-actions center" disableSpacing>
-					{propertyOwner.toLowerCase() === address ? (
-						<>
-							<Button className="btn" variant="outlined" onClick={changePrice}>
-								Increase Price
-							</Button>
-
-							<Button
-								className="btn"
-								variant="outlined"
-								onClick={putOrRemoveFromSale}
-							>
-								{propertyOnSale ? 'Remove from Sale' : 'Put on Sale'}
-							</Button>
-						</>
+					{propertyOwner.toLowerCase() !== address ? (
+						<Button
+							className="btn"
+							variant="outlined"
+							onClick={putOrRemoveFromSale}
+						>
+							{propertyOnSale ? 'Remove from Sale' : 'Put on Sale'}
+						</Button>
 					) : propertyOnSale ? (
 						<Button variant="outlined" onClick={buyProperty}>
 							BUY
