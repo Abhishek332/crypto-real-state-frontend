@@ -45,26 +45,15 @@ const PropertyCard = ({
 				</CardContent>
 				<CardActions>
 					<Link
-						//put comments here for old name references for you @akhilleshgoswami
-						// to="/moreInfo"
 						to="/property-details"
 						state={{
 							propertyOwner: currentOwner,
 							propertyOnSale: forSale,
-							perviousOwner,
 							propertyAddress: placeAddress,
 							propertyPrice: ethers.utils.formatEther(price),
 							tokenId,
 							propertyImage: tokenURI,
 							propertyName: placeName,
-							// owner: currentOwner,
-							// forSale,
-							// oldowner: perviousOwner,
-							// address: placeAddress,
-							// price: ethers.utils.formatEther(price),
-							// tokenId,
-							// placeImage: tokenURI,
-							// Place: placeName,
 						}}
 					>
 						<Button size="small">

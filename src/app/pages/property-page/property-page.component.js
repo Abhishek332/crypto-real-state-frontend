@@ -21,6 +21,16 @@ function PropertyPage() {
 			setContract(contract);
 		}
 
+		const fakeDelay = () => {
+			return new Promise((resolve, reject) => {
+				setTimeout(() => {
+					resolve();
+				}, 1200);
+			});
+		};
+
+		await fakeDelay();
+
 		const totalProperties = await contractInstance?.methods
 			.getNumberOfTokensMinted()
 			.call();

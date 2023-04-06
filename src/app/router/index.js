@@ -6,23 +6,24 @@ import {
 	PropertyDetailsPage,
 } from '../pages';
 import { Navbar, Footer } from '../components';
-import RecipeReviewCard from '../components/Detiles_page/Eetiles';
 import { useContext, useEffect, useState } from 'react';
 import { getChainId } from '../utils/utils';
 import { ARBI_TESTNET_CHAIN_ID } from '../utils/constants';
+import { switchNetwork } from '../utils/utils';
 import { getAccount } from '@wagmi/core';
-import SwitchNetwork from '../components/switchNetwork/SwitchNetwork';
 import { Context } from '../utils/context-provider';
-import AlertDialog from '../components/alert-dialog/alert-dialog.component';
+import LoadingIndicator from '../components/loading-indicator/loading-indicator.component';
+import ChainChangeLoader from '../assets/chain-change-loader.json';
+import MetamaskIcon from '../assets/metamask-icon.svg';
 
-// you can import like this
 const Router = () => {
 	const [chainId, setChainID] = useState(ARBI_TESTNET_CHAIN_ID);
-	const { setAddress,isMetamaskInstalled } = useContext(Context);
+	const { setAddress, isMetamaskInstalled } = useContext(Context);
+
 	const checkChainChanged = async () => {
-		const netowrkChainId = await getChainId();
-		if (netowrkChainId !== ARBI_TESTNET_CHAIN_ID) {
-			setChainID(netowrkChainId);
+		const networkChainId = await getChainId();
+		if (networkChainId !== ARBI_TESTNET_CHAIN_ID) {
+			setChainID(networkChainId);
 		}
 	};
 
@@ -44,44 +45,43 @@ const Router = () => {
 		checkChainChanged();
 	}, []);
 
+	if (chainId !== ARBI_TESTNET_CHAIN_ID) {
+		const chainChangeLoaderOptions = {
+			indicator: ChainChangeLoader,
+			text: 'Your are on wrong network, Please switch to ARBITRUM TESTNET',
+			buttonText: 'Switch to Testnet',
+			buttonAction: () => switchNetwork(ARBI_TESTNET_CHAIN_ID),
+		};
 
+		return <LoadingIndicator {...chainChangeLoaderOptions} />;
+	}
 
+	if (!isMetamaskInstalled) {
+		const installMetamaskLoaderOptions = {
+			indicator: MetamaskIcon,
+			text: 'Metamsk is not installed in your system, Please install Metamask and try again',
+			buttonText: 'Click here to install',
+			buttonAction: () =>
+				(window.location.href = 'https://metamask.io/download/'),
+		};
 
+		return <LoadingIndicator {...installMetamaskLoaderOptions} image />;
+	}
 
 	return (
-	
 		<div className="container">
-	
-			{chainId !== ARBI_TESTNET_CHAIN_ID ? (
-				<div>
-					<SwitchNetwork />
+			<BrowserRouter>
+				<Navbar />
+				<div className="page-container">
+					<Routes>
+						<Route path="/" element={<HomePage />}></Route>
+						<Route path="/properties" element={<PropertyPage />} />
+						<Route path="/property-details" element={<PropertyDetailsPage />} />
+						<Route path="/Register" element={<RegisterPage />} />
+					</Routes>
 				</div>
-			) : (
-				<div>
-					<BrowserRouter>
-						<Navbar />
-						<div className="page-container">
-							<Routes>
-								<Route path="/" element={<HomePage />}></Route>
-								<Route path="/moreInfo" element={<RecipeReviewCard />} />
-								<Route path="/properties" element={<PropertyPage />} />
-								<Route
-									path="/property-details"
-									element={<PropertyDetailsPage />}
-								/>
-								<Route path="/Register" element={<RegisterPage />} />
-							</Routes>
-						</div>
-						<Footer />
-					</BrowserRouter>
-				</div>
-			)}
-			    <AlertDialog
-				title="install Metamask"
-				text="Please install Metamask"
-				isDialogOpen={!isMetamaskInstalled}
-				
-			/>
+				<Footer />
+			</BrowserRouter>
 		</div>
 	);
 };
