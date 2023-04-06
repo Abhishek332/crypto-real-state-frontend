@@ -86,26 +86,29 @@ function Navbar() {
 				</div>
 			</div>
 			<div
-				className="nav-modal center"
+				className="nav-modal-container"
+				onClick={() => setModal(false)}
 				style={
 					modal
 						? { transform: 'translateX(0)' }
 						: { transform: 'translateX(-100%)' }
 				}
 			>
-				{NavLinks.map((link) =>
-					link.name === 'Register' &&
-					address !== GOVT_ADDR.toLowerCase() ? null : (
-						<Link
-							className={`nav-link ${pathname === link.path ? 'active' : ''}`}
-							to={link.path}
-							key={link.name}
-							onClick={() => setModal(!modal)}
-						>
-							{link.name}
-						</Link>
-					)
-				)}
+				<div className="nav-modal center">
+					{NavLinks.map((link) =>
+						link.name === 'Register' &&
+						address !== GOVT_ADDR.toLowerCase() ? null : (
+							<Link
+								className={`nav-link ${pathname === link.path ? 'active' : ''}`}
+								to={link.path}
+								key={link.name}
+								onClick={() => setModal(!modal)}
+							>
+								{link.name}
+							</Link>
+						)
+					)}
+				</div>
 			</div>
 		</>
 	);
