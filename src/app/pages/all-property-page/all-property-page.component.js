@@ -7,9 +7,9 @@ import Header from '../../components/header/header.component';
 import House1 from '../../assets/house1.webp';
 import CardsContainer from '../../components/cards-container/cards-container.component';
 import PropertyCard from '../../components/property-card/property-card.component';
-import './property-page.css';
+import './all-property-page.css';
 
-function PropertyPage() {
+function AllPropertyPage() {
 	const { contractInstance, setContract } = useContext(Context);
 	const [allProperties, setAllProperties] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -25,7 +25,7 @@ function PropertyPage() {
 			return new Promise((resolve, reject) => {
 				setTimeout(() => {
 					resolve();
-				}, 1200);
+				}, 1000);
 			});
 		};
 
@@ -59,11 +59,15 @@ function PropertyPage() {
 	}
 
 	return (
-		<div id="property-page">
+		<div id="all-property-page">
 			<Header title="Properties" head background={House1} />
-			<CardsContainer dataList={allProperties} child={PropertyCard} />
+			{allProperties.length > 0 ? (
+				<CardsContainer dataList={allProperties} child={PropertyCard} />
+			) : (
+				<p>No properties are listed yet.</p>
+			)}
 		</div>
 	);
 }
 
-export default PropertyPage;
+export default AllPropertyPage;

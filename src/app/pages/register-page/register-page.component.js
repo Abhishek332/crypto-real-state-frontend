@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
@@ -23,6 +24,7 @@ function Register() {
 	const [imageUrl, setImageUrl] = useState();
 	const [forsell, setforsell] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const navigate = useNavigate();
 
 	const uploadFile = async (e) => {
 		setLoading(true);
@@ -79,6 +81,8 @@ function Register() {
 			<LoadingIndicator
 				indicator={ErrorImg}
 				text="You are not authorized to access this page."
+				buttonText="Go to Home Page"
+				buttonAction={() => navigate('/')}
 				image
 			/>
 		);
@@ -141,7 +145,7 @@ function Register() {
 									value={etherAddress}
 									onChange={(e) => setEtherAddress(e.target.value)}
 									placeholder="Enter Ethereum Address"
-									label="owner Address"
+									label="Owner's crypto account address"
 									variant="outlined"
 									fullWidth
 									required

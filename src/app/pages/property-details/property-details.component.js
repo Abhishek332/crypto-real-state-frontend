@@ -11,6 +11,7 @@ import './property-details.css';
 import { Context } from '../../utils/context-provider';
 import { ethers } from 'ethers';
 import AlertDialog from '../../components/alert-dialog/alert-dialog.component';
+import { GOVT_ADDR } from '../../utils/constants';
 
 const PropertyDetails = () => {
 	const { contractInstance, address } = useContext(Context);
@@ -114,32 +115,34 @@ const PropertyDetails = () => {
 					</ul>
 				</div>
 
-				<CardActions className="card-actions center" disableSpacing>
-					{propertyOwner.toLowerCase() !== address ? (
-						<Button
-							className="btn"
-							variant="outlined"
-							onClick={putOrRemoveFromSale}
-						>
-							{propertyOnSale ? 'Remove from Sale' : 'Put on Sale'}
-						</Button>
-					) : propertyOnSale ? (
-						<Button variant="outlined" onClick={buyProperty}>
-							BUY
-						</Button>
-					) : (
-						<Typography
-							paragraph
-							sx={{
-								fontWeight: 500,
-								color: '#0c4c94',
-								textShadow: '0 0 1px rgba(0,0,0, 5)',
-							}}
-						>
-							NOT FOR SALE
-						</Typography>
-					)}
-				</CardActions>
+				{address !== GOVT_ADDR && (
+					<CardActions className="card-actions center" disableSpacing>
+						{propertyOwner.toLowerCase() === address ? (
+							<Button
+								className="btn"
+								variant="outlined"
+								onClick={putOrRemoveFromSale}
+							>
+								{propertyOnSale ? 'Remove from Sale' : 'Put on Sale'}
+							</Button>
+						) : propertyOnSale ? (
+							<Button variant="outlined" onClick={buyProperty}>
+								BUY
+							</Button>
+						) : (
+							<Typography
+								paragraph
+								sx={{
+									fontWeight: 500,
+									color: '#0c4c94',
+									textShadow: '0 0 1px rgba(0,0,0, 5)',
+								}}
+							>
+								NOT FOR SALE
+							</Typography>
+						)}
+					</CardActions>
+				)}
 			</Card>
 			<AlertDialog
 				title="Metamask is not connected"
