@@ -115,7 +115,7 @@ const PropertyDetails = () => {
 				</div>
 
 				<CardActions className="card-actions center" disableSpacing>
-					{propertyOwner.toLowerCase() !== address ? (
+					{propertyOwner.toLowerCase() === address ? (
 						<Button
 							className="btn"
 							variant="outlined"
