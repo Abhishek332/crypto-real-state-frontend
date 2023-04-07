@@ -20,12 +20,16 @@ function Navbar() {
 			path: '/',
 		},
 		{
-			name: 'Properties',
-			path: '/properties',
+			name: 'All Properties',
+			path: '/all-properties',
 		},
 		{
-			name: 'Register',
-			path: '/Register',
+			name: 'My Properties',
+			path: '/my-properties',
+		},
+		{
+			name: 'Register Property',
+			path: '/register-property',
 		},
 	];
 	const disConnect = () => {
@@ -64,8 +68,10 @@ function Navbar() {
 					</h3>
 					<div className="nav-links center">
 						{NavLinks.map((link) =>
-							link.name === 'Register' &&
-							address !== GOVT_ADDR.toLowerCase() ? null : (
+							(link.name === 'Register Property' &&
+								address !== GOVT_ADDR.toLowerCase()) ||
+							(link.name === 'My Properties' &&
+								address === GOVT_ADDR.toLowerCase()) ? null : (
 								<Link
 									className={`nav-link ${
 										pathname === link.path ? 'active' : ''
@@ -96,8 +102,10 @@ function Navbar() {
 			>
 				<div className="nav-modal center">
 					{NavLinks.map((link) =>
-						link.name === 'Register' &&
-						address !== GOVT_ADDR.toLowerCase() ? null : (
+						(link.name === 'Register Property' &&
+							address !== GOVT_ADDR.toLowerCase()) ||
+						(link.name === 'My Properties' &&
+							address === GOVT_ADDR.toLowerCase()) ? null : (
 							<Link
 								className={`nav-link ${pathname === link.path ? 'active' : ''}`}
 								to={link.path}

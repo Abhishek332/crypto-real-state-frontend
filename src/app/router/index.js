@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {
 	HomePage,
-	PropertyPage,
+	AllPropertyPage,
+	MyPropertyPage,
 	RegisterPage,
 	PropertyDetailsPage,
 } from '../pages';
@@ -75,9 +76,10 @@ const Router = () => {
 				<div className="page-container">
 					<Routes>
 						<Route path="/" element={<HomePage />}></Route>
-						<Route path="/properties" element={<PropertyPage />} />
+						<Route path="/all-properties" element={<AllPropertyPage />} />
+						<Route path="/my-properties" element={<MyPropertyPage />} />
 						<Route path="/property-details" element={<PropertyDetailsPage />} />
-						<Route path="/Register" element={<RegisterPage />} />
+						<Route path="/register-property" element={<RegisterPage />} />
 					</Routes>
 				</div>
 				<Footer />
