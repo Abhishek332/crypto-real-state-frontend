@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Router, useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
@@ -52,7 +52,7 @@ function Register() {
 				value: listingPrice,
 			};
 			setEtherAddress(etherAddress.toString().toLowerCase());
-
+           
 			await contractInstance.methods
 				.mintCryptoState(
 					city,
@@ -63,6 +63,13 @@ function Register() {
 					forsell
 				)
 				.send(transactionObject);
+				setCity("")
+				setEtherAddress("")
+				setLoading("")
+				setImageUrl("")
+				setPrice("")
+				setplaceaddress("")
+
 		} catch (error) {
 			console.log(error);
 		}
@@ -73,7 +80,7 @@ function Register() {
 		// setforsell(false)
 		// setplaceaddress("")
 
-		// router.push("/properties");
+		Router.push("/properties");
 	};
 
 	if (address !== GOVT_ADDR.toLowerCase()) {

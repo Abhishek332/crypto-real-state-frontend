@@ -71,7 +71,7 @@ function Navbar() {
 							(link.name === 'Register Property' &&
 								address !== GOVT_ADDR.toLowerCase()) ||
 							(link.name === 'My Properties' &&
-								address === GOVT_ADDR.toLowerCase()) ? null : (
+								address === undefined) ? null : (
 								<Link
 									className={`nav-link ${
 										pathname === link.path ? 'active' : ''
@@ -105,7 +105,7 @@ function Navbar() {
 						(link.name === 'Register Property' &&
 							address !== GOVT_ADDR.toLowerCase()) ||
 						(link.name === 'My Properties' &&
-							address === GOVT_ADDR.toLowerCase()) ? null : (
+							address === undefined) ? null : (
 							<Link
 								className={`nav-link ${pathname === link.path ? 'active' : ''}`}
 								to={link.path}

@@ -44,7 +44,7 @@ function MyPropertyPage() {
 			const tempProperty = await contractInstance?.methods
 				.allCryptostate(propertyIndex)
 				.call();
-			console.log(tempProperty);
+
 
 			if (tempProperty.currentOwner.toLowerCase() === address.toLowerCase()) {
 				tempProperties.push(tempProperty);
@@ -65,11 +65,13 @@ function MyPropertyPage() {
 
 	return (
 		<div id="my-property-page">
+			
 			<Header title="My Properties" head background={House1} />
-			{myProperties.length > 0 ? (
+			{myProperties.length > 0 && address ? (
 				<CardsContainer dataList={myProperties} child={PropertyCard} />
 			) : (
-				<p>You didn't buy any property yet.</p>
+				address ? 	<p>You didn't buy any property yet.</p> : <p>Please connect metamask.</p>
+
 			)}
 		</div>
 	);

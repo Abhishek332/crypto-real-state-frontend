@@ -11,7 +11,7 @@ import './property-details.css';
 import { Context } from '../../utils/context-provider';
 import { ethers } from 'ethers';
 import AlertDialog from '../../components/alert-dialog/alert-dialog.component';
-import { GOVT_ADDR } from '../../utils/constants';
+
 
 const PropertyDetails = () => {
 	const { contractInstance, address } = useContext(Context);
@@ -115,7 +115,7 @@ const PropertyDetails = () => {
 					</ul>
 				</div>
 
-				{address !== GOVT_ADDR && (
+				
 					<CardActions className="card-actions center" disableSpacing>
 						{propertyOwner.toLowerCase() === address ? (
 							<Button
@@ -142,7 +142,7 @@ const PropertyDetails = () => {
 							</Typography>
 						)}
 					</CardActions>
-				)}
+		
 			</Card>
 			<AlertDialog
 				title="Metamask is not connected"
